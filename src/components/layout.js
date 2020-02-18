@@ -21,6 +21,9 @@ const TemplateWrapper = ({ children }) => {
             }
           }
           datoCmsHome {
+            addressText
+            telephone
+            email
             seoMetaTags {
               ...GatsbyDatoCmsSeoMetaTags
             }
@@ -48,12 +51,38 @@ const TemplateWrapper = ({ children }) => {
             seo={data.datoCmsHome.seoMetaTags}
           />
           <header>
-            <h1>{data.datoCmsSite.globalSeo.siteName}</h1>
+            <h1>
+              {" "}
+              <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
+            </h1>
             <nav>
               <ul>
-                <li>home</li>
-                <li>about</li>
-                <li>contact</li>
+                <li
+                  className={window.location.pathname === "/" ? "active" : ""}
+                >
+                  <Link to="/">projecten</Link>
+                </li>
+                <li
+                  className={
+                    window.location.pathname === "/tekeningen" ? "active" : ""
+                  }
+                >
+                  <Link to="/tekeningen">tekeningen</Link>
+                </li>
+                <li
+                  className={
+                    window.location.pathname === "/workshops" ? "active" : ""
+                  }
+                >
+                  <Link to="/workshops">workshops</Link>
+                </li>
+                <li
+                  className={
+                    window.location.pathname === "/contact" ? "active" : ""
+                  }
+                >
+                  <Link to="/contact">contact</Link>
+                </li>
               </ul>
             </nav>
           </header>
@@ -98,7 +127,7 @@ const TemplateWrapper = ({ children }) => {
             </div>
           </div>*/}
           <div className="container__body">
-            <div className="container__mobile-header">
+            {/* <div className="container__mobile-header">
               <div className="mobile-header">
                 <div className="mobile-header__menu">
                   <a
@@ -113,9 +142,14 @@ const TemplateWrapper = ({ children }) => {
                   <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
                 </div>
               </div>
-            </div>
+            </div> */}
             {children}
           </div>
+          <footer>
+            <span>{data.datoCmsHome.addressText}</span>
+            <span>{data.datoCmsHome.telephone}</span>
+            <span>{data.datoCmsHome.email}</span>
+          </footer>
         </div>
       )}
     />

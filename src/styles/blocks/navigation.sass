@@ -1,6 +1,41 @@
 header
     display: flex
     justify-content: space-between
-    padding: 1rem 3rem
+    padding: 60px 40px
+    h1
+        font-size: 3rem
+        font-weight: 100
+        line-height: 3rem
+    ul
+        display: flex
+        li
+            margin-left: 1rem
+            position: relative
+            cursor: pointer
+            text-transform: uppercase
+            &:before
+                content: ''
+                width: 100%
+                top: -60px
+                background: $light-bg-color
+                height: 4px
+                widows: 100%
+                display: block
+                position: absolute
+                transition: top 200ms ease-in
+            &:hover::before
+                top: -64px
+        .active
+            font-weight: 900
+            &:before
+                top: -64px
 .container
     flex-direction: column
+.intro
+    background: black
+    color: white
+    padding: 2rem
+    padding-bottom: 5rem
+    font-weight: 100
+    line-height: 3rem
+    font-size: 1.2rem
