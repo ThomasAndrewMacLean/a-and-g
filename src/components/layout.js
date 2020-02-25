@@ -1,92 +1,109 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Link } from "gatsby";
-import { StaticQuery, graphql } from "gatsby";
-import { HelmetDatoCms } from "gatsby-source-datocms";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
+import { HelmetDatoCms } from 'gatsby-source-datocms';
 
-import "../styles/index.sass";
+import '../styles/index.sass';
 
-const TemplateWrapper = ({ children }) => {
-  const [showMenu, setShowMenu] = useState(false);
-  return (
-    <StaticQuery
-      query={graphql`
-        query LayoutQuery {
-          datoCmsSite {
-            globalSeo {
-              siteName
-            }
-            faviconMetaTags {
-              ...GatsbyDatoCmsFaviconMetaTags
-            }
-          }
-          datoCmsHome {
-            addressText
-            telephone
-            email
-            seoMetaTags {
-              ...GatsbyDatoCmsSeoMetaTags
-            }
-            introTextNode {
-              childMarkdownRemark {
-                html
-              }
-            }
-            copyright
-          }
-          allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
-            edges {
-              node {
-                profileType
-                url
-              }
-            }
-          }
-        }
-      `}
-      render={data => (
-        <div className={`container ${showMenu ? "is-open" : ""}`}>
-          <HelmetDatoCms
-            favicon={data.datoCmsSite.faviconMetaTags}
-            seo={data.datoCmsHome.seoMetaTags}
-          />
-          <header>
-            <h1>
-              {" "}
-              <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
-            </h1>
-            <nav>
-              <ul>
-                <li
-                  className={window.location.pathname === "/" ? "active" : ""}
-                >
-                  <Link to="/">projecten</Link>
-                </li>
-                <li
-                  className={
-                    window.location.pathname === "/tekeningen" ? "active" : ""
-                  }
-                >
-                  <Link to="/tekeningen">tekeningen</Link>
-                </li>
-                <li
-                  className={
-                    window.location.pathname === "/workshops" ? "active" : ""
-                  }
-                >
-                  <Link to="/workshops">workshops</Link>
-                </li>
-                <li
-                  className={
-                    window.location.pathname === "/contact" ? "active" : ""
-                  }
-                >
-                  <Link to="/contact">contact</Link>
-                </li>
-              </ul>
-            </nav>
-          </header>
-          {/* <div className="container__sidebar"> 
+const TemplateWrapper = ({ children, location }) => {
+    console.log(location);
+    const [showMenu, setShowMenu] = useState(false);
+    return (
+        <StaticQuery
+            query={graphql`
+                query LayoutQuery {
+                    datoCmsSite {
+                        globalSeo {
+                            siteName
+                        }
+                        faviconMetaTags {
+                            ...GatsbyDatoCmsFaviconMetaTags
+                        }
+                    }
+                    datoCmsHome {
+                        addressText
+                        telephone
+                        email
+                        seoMetaTags {
+                            ...GatsbyDatoCmsSeoMetaTags
+                        }
+                        introTextNode {
+                            childMarkdownRemark {
+                                html
+                            }
+                        }
+                        copyright
+                    }
+                    allDatoCmsSocialProfile(
+                        sort: { fields: [position], order: ASC }
+                    ) {
+                        edges {
+                            node {
+                                profileType
+                                url
+                            }
+                        }
+                    }
+                }
+            `}
+            render={data => (
+                <div className={`container ${showMenu ? 'is-open' : ''}`}>
+                    <HelmetDatoCms
+                        favicon={data.datoCmsSite.faviconMetaTags}
+                        seo={data.datoCmsHome.seoMetaTags}
+                    />
+                    <header>
+                        <h1>
+                            {' '}
+                            <Link to="/">
+                                {data.datoCmsSite.globalSeo.siteName}
+                            </Link>
+                        </h1>
+                        <nav>
+                            <ul>
+                                <li
+                                    className={
+                                        location.pathname === '/'
+                                            ? 'active'
+                                            : ''
+                                    }
+                                >
+                                    <Link to="/">projecten</Link>
+                                </li>
+                                <li
+                                    className={
+                                        location.pathname.includes(
+                                            '/tekeningen'
+                                        )
+                                            ? 'active'
+                                            : ''
+                                    }
+                                >
+                                    <Link to="/tekeningen">tekeningen</Link>
+                                </li>
+                                <li
+                                    className={
+                                        location.pathname.includes('/workshops')
+                                            ? 'active'
+                                            : ''
+                                    }
+                                >
+                                    <Link to="/workshops">workshops</Link>
+                                </li>
+                                <li
+                                    className={
+                                        location.pathname.includes('/contact')
+                                            ? 'active'
+                                            : ''
+                                    }
+                                >
+                                    <Link to="/contact">contact</Link>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    {/* <div className="container__sidebar"> 
             <div className="sidebar">
               <h6 className="sidebar__title">
                 <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
@@ -126,8 +143,8 @@ const TemplateWrapper = ({ children }) => {
               </div>
             </div>
           </div>*/}
-          <div className="container__body">
-            {/* <div className="container__mobile-header">
+                    <div className="container__body">
+                        {/* <div className="container__mobile-header">
               <div className="mobile-header">
                 <div className="mobile-header__menu">
                   <a
@@ -143,21 +160,21 @@ const TemplateWrapper = ({ children }) => {
                 </div>
               </div>
             </div> */}
-            {children}
-          </div>
-          <footer>
-            <span>{data.datoCmsHome.addressText}</span>
-            <span>{data.datoCmsHome.telephone}</span>
-            <span>{data.datoCmsHome.email}</span>
-          </footer>
-        </div>
-      )}
-    />
-  );
+                        {children}
+                    </div>
+                    <footer>
+                        <span>{data.datoCmsHome.addressText}</span>
+                        <span>{data.datoCmsHome.telephone}</span>
+                        <span>{data.datoCmsHome.email}</span>
+                    </footer>
+                </div>
+            )}
+        />
+    );
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.object
+    children: PropTypes.object
 };
 
 export default TemplateWrapper;

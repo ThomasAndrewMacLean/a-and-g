@@ -4,10 +4,10 @@ import Masonry from 'react-masonry-component';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
 
-const WorkshopsPage = ({ data }) => {
+const WorkshopsPage = ({ data, location }) => {
     console.log(data);
     return (
-        <Layout>
+        <Layout location={location}>
             <Masonry className="showcase">
                 {/* <div className="showcase__item">
                     <div

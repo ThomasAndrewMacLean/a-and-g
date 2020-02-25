@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import Masonry from 'react-masonry-component';
 import Layout from '../components/layout';
 
-const IndexPage = ({ data, location }) => {
+const ContactPage = ({ data, location }) => {
     console.log(data);
     return (
         <Layout location={location}>
@@ -23,10 +23,10 @@ const IndexPage = ({ data, location }) => {
     );
 };
 
-export default IndexPage;
+export default ContactPage;
 
 export const query = graphql`
-    query IndexQuery {
+    query ContactQuery {
         datoCmsHome {
             seoMetaTags {
                 ...GatsbyDatoCmsSeoMetaTags

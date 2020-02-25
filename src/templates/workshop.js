@@ -1,15 +1,13 @@
 import React from 'react';
-import Slider from 'react-slick';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 
-export default ({ data }) => {
+export default ({ data, location }) => {
     console.log(data);
 
     return (
-        <Layout>
+        <Layout location={location}>
             <article className="sheet">
                 {/* <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} /> */}
                 <div className="sheet__inner">
@@ -30,7 +28,6 @@ export default ({ data }) => {
                     />
                     <div className="sheet__gallery">
                         <Img fluid={data.datoCmsWorkshop.afbeelding.fluid} />
-                        {/* <img src={data.datoCmsWorkshop.afbeelding.url} /> */}
                     </div>
                 </div>
             </article>
