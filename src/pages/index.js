@@ -29,96 +29,99 @@ const IndexPage = ({ data, location }) => {
     };
     return (
         <Layout location={location}>
-            <Masonry className="showcase">
-                <div className="showcase__item">
-                    <div
-                        className="intro"
-                        dangerouslySetInnerHTML={{
-                            __html:
-                                data.datoCmsHome.introTextNode
-                                    .childMarkdownRemark.html
-                        }}
-                    ></div>
-                </div>
-
-                <div className="showcase__item">
-                    <div className="newsletter">
-                        <h3>Blijf op de hoogte</h3>
-                        <form onSubmit={saveEmail}>
-                            <input
-                                type="email"
-                                name="email"
-                                onChange={updateEmail}
-                                required
-                                placeholder="email"
-                            />
-                            <input type="submit" value="Schrijf mij in" />
-                        </form>
+            <div className="pusher">
+                <Masonry className="showcase">
+                    <div className="showcase__item">
+                        <div
+                            className="intro"
+                            dangerouslySetInnerHTML={{
+                                __html:
+                                    data.datoCmsHome.introTextNode
+                                        .childMarkdownRemark.html
+                            }}
+                        ></div>
                     </div>
-                </div>
 
-                <div className="showcase__item">
-                    <figure className="card">
-                        <Link to={`/tekeningen/`} className="card__image">
+                    <div className="showcase__item">
+                        <div className="newsletter">
+                            <h3>Blijf op de hoogte</h3>
+                            <form onSubmit={saveEmail}>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    onChange={updateEmail}
+                                    required
+                                    placeholder="email"
+                                />
+                                <input type="submit" value="Schrijf mij in" />
+                            </form>
+                        </div>
+                    </div>
+
+                    <div className="showcase__item">
+                        <figure className="card">
+                            <Link to={`/tekeningen/`} className="card__image">
+                                <Img fluid={getAfbeelding().fluid} />
+                                <figcaption className="card__caption">
+                                    <h6 className="card__title">
+                                        We zijn verliefd op tekenen ➡ bekijk
+                                        alles:
+                                    </h6>
+                                </figcaption>
+                            </Link>
+                        </figure>
+                    </div>
+
+                    <div className="showcase__item">
+                        <figure className="card">
                             <Img fluid={getAfbeelding().fluid} />
-                            <figcaption className="card__caption">
-                                <h6 className="card__title">
-                                    We zijn verliefd op tekenen ➡ bekijk alles:
-                                </h6>
-                            </figcaption>
-                        </Link>
-                    </figure>
-                </div>
+                        </figure>
+                    </div>
 
-                <div className="showcase__item">
-                    <figure className="card">
-                        <Img fluid={getAfbeelding().fluid} />
-                    </figure>
-                </div>
+                    <div className="showcase__item">
+                        <figure className="card">
+                            <Link to={`/workshops/`} className="card__image">
+                                <Img fluid={afbeelding.fluid} />
+                                <figcaption className="card__caption">
+                                    <h6 className="card__title">
+                                        We hebben een passie voor workshops —>
+                                        bekijk alles:
+                                    </h6>
+                                </figcaption>
+                            </Link>
+                        </figure>
+                    </div>
 
-                <div className="showcase__item">
-                    <figure className="card">
-                        <Link to={`/workshops/`} className="card__image">
-                            <Img fluid={afbeelding.fluid} />
-                            <figcaption className="card__caption">
-                                <h6 className="card__title">
-                                    We hebben een passie voor workshops —>
-                                    bekijk alles:
-                                </h6>
-                            </figcaption>
-                        </Link>
-                    </figure>
-                </div>
+                    <div className="showcase__item">
+                        <div
+                            className="intro"
+                            dangerouslySetInnerHTML={{
+                                __html:
+                                    data.datoCmsHome.introtekstDeel2Node
+                                        .childMarkdownRemark.html
+                            }}
+                        ></div>
+                    </div>
 
-                <div className="showcase__item">
-                    <div
-                        className="intro"
-                        dangerouslySetInnerHTML={{
-                            __html:
-                                data.datoCmsHome.introtekstDeel2Node
-                                    .childMarkdownRemark.html
-                        }}
-                    ></div>
-                </div>
+                    <div className="showcase__item">
+                        <figure className="card">
+                            <Img fluid={getAfbeelding().fluid} />
+                        </figure>
+                    </div>
 
-                <div className="showcase__item">
-                    <figure className="card">
-                        <Img fluid={getAfbeelding().fluid} />
-                    </figure>
-                </div>
+                    <div className="showcase__item">
+                        <figure className="card">
+                            <Img fluid={getAfbeelding().fluid} />
+                        </figure>
+                    </div>
 
-                <div className="showcase__item">
-                    <figure className="card">
-                        <Img fluid={getAfbeelding().fluid} />
-                    </figure>
-                </div>
-
-                <div className="showcase__item">
-                    <figure className="card">
-                        <Img fluid={getAfbeelding().fluid} />
-                    </figure>
-                </div>
-            </Masonry>
+                    <div className="showcase__item">
+                        <figure className="card">
+                            <Img fluid={getAfbeelding().fluid} />
+                        </figure>
+                    </div>
+                </Masonry>
+            </div>
 
             <div
                 className="believers"
