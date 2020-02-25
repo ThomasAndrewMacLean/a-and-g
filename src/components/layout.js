@@ -7,7 +7,6 @@ import { HelmetDatoCms } from 'gatsby-source-datocms';
 import '../styles/index.sass';
 
 const TemplateWrapper = ({ children, location }) => {
-    console.log(location);
     const [showMenu, setShowMenu] = useState(false);
     return (
         <StaticQuery
@@ -62,15 +61,15 @@ const TemplateWrapper = ({ children, location }) => {
                         </h1>
                         <nav>
                             <ul>
-                                {/* <li
+                                <li
                                     className={
                                         location.pathname === '/'
                                             ? 'active'
                                             : ''
                                     }
                                 >
-                                    <Link to="/">projecten</Link>
-                                </li> */}
+                                    <Link to="/">home</Link>
+                                </li>
                                 <li
                                     className={
                                         location.pathname.includes(

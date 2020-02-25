@@ -6,14 +6,13 @@ import Masonry from 'react-masonry-component';
 import Layout from '../components/layout';
 
 const IndexPage = ({ data, location }) => {
-    console.log(data);
-
     const getAfbeelding = () => {
         return data.datoCmsTekeningen.tekeningen[
             Math.floor(Math.random() * data.datoCmsTekeningen.tekeningen.length)
         ];
     };
     const [afbeelding, setAfbeelding] = useState(getAfbeelding());
+    const [email, setEmail] = useState('');
 
     useEffect(() => {
         // setInterval(() => {
@@ -21,6 +20,13 @@ const IndexPage = ({ data, location }) => {
         // }, 8000);
     }, []);
 
+    const updateEmail = e => {
+        setEmail(e.target.value);
+    };
+    const saveEmail = e => {
+        e.preventDefault();
+        console.log(email);
+    };
     return (
         <Layout location={location}>
             <Masonry className="showcase">
@@ -33,6 +39,22 @@ const IndexPage = ({ data, location }) => {
                                     .childMarkdownRemark.html
                         }}
                     ></div>
+                </div>
+
+                <div className="showcase__item">
+                    <div className="newsletter">
+                        <h3>Blijf op de hoogte</h3>
+                        <form onSubmit={saveEmail}>
+                            <input
+                                type="email"
+                                name="email"
+                                onChange={updateEmail}
+                                required
+                                placeholder="email"
+                            />
+                            <input type="submit" value="Schrijf mij in" />
+                        </form>
+                    </div>
                 </div>
 
                 <div className="showcase__item">
