@@ -62,7 +62,7 @@ const TemplateWrapper = ({ children, location }) => {
                         </h1>
                         <nav>
                             <ul>
-                                <li
+                                {/* <li
                                     className={
                                         location.pathname === '/'
                                             ? 'active'
@@ -70,7 +70,7 @@ const TemplateWrapper = ({ children, location }) => {
                                     }
                                 >
                                     <Link to="/">projecten</Link>
-                                </li>
+                                </li> */}
                                 <li
                                     className={
                                         location.pathname.includes(

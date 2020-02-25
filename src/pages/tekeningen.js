@@ -1,46 +1,31 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Masonry from 'react-masonry-component';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
 
 const TekeningenPage = ({ data, location }) => {
     console.log(data);
+    function shuffle(a) {
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
     return (
         <Layout location={location}>
             <Masonry className="showcase">
                 <div className="showcase__item">
-                    <div
-                        className="intro"
-                        dangerouslySetInnerHTML={{
-                            __html:
-                                data.datoCmsHome.introTextNode
-                                    .childMarkdownRemark.html
-                        }}
-                    ></div>
+                    <h1>{data.datoCmsTekeningen.titel}</h1>
                 </div>
-                {/* {data.allDatoCmsHome.edges.map(({ node: work }) => (
-                    <div key={work.id} className="showcase__item">
+                {shuffle(data.datoCmsTekeningen.tekeningen).map(tekening => (
+                    <div key={tekening.filename} className="showcase__item">
                         <figure className="card">
-                            <Link
-                                to={`/works/${work.slug}`}
-                                className="card__image"
-                            >
-                                <Img fluid={work.coverImage.fluid} />
-                            </Link>
-                            <figcaption className="card__caption">
-                                <h6 className="card__title">
-                                    <Link to={`/works/${work.slug}`}>
-                                        {work.title}
-                                    </Link>
-                                </h6>
-                                <div className="card__description">
-                                    <p>{work.excerpt}</p>
-                                </div>
-                            </figcaption>
+                            <Img fluid={tekening.fluid} />
                         </figure>
                     </div>
-                ))} */}
+                ))}
             </Masonry>
         </Layout>
     );
@@ -50,21 +35,23 @@ export default TekeningenPage;
 
 export const query = graphql`
     query TekeningenQuery {
-        datoCmsHome {
-            seoMetaTags {
-                ...GatsbyDatoCmsSeoMetaTags
-            }
-            introTextNode {
+        datoCmsTekeningen {
+            titel
+            uitlegNode {
                 childMarkdownRemark {
                     html
                 }
             }
-            copyright
-            address {
-                latitude
-                longitude
+            tekeningen {
+                filename
+                url
+                fluid(
+                    maxWidth: 300
+                    imgixParams: { fm: "jpg", auto: "compress" }
+                ) {
+                    ...GatsbyDatoCmsSizes
+                }
             }
-            addressText
         }
     }
 `;

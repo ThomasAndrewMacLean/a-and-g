@@ -19,6 +19,9 @@ const WorkshopsPage = ({ data, location }) => {
                         }}
                     ></div>
                 </div> */}
+                <div className="showcase__item">
+                    <h1>We hebben een passie voor workshops</h1>
+                </div>
                 {data.allDatoCmsWorkshop.edges.map(({ node: work }) => (
                     <div key={work.id} className="showcase__item">
                         <figure className="card">
