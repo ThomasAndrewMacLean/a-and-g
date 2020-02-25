@@ -4,7 +4,7 @@ import Masonry from 'react-masonry-component';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
 
-const IndexPage = ({ data }) => {
+const TekeningenPage = ({ data }) => {
     console.log(data);
     return (
         <Layout>
@@ -46,10 +46,10 @@ const IndexPage = ({ data }) => {
     );
 };
 
-export default IndexPage;
+export default TekeningenPage;
 
 export const query = graphql`
-    query IndexQuery {
+    query TekeningenQuery {
         datoCmsHome {
             seoMetaTags {
                 ...GatsbyDatoCmsSeoMetaTags
@@ -68,19 +68,3 @@ export const query = graphql`
         }
     }
 `;
-
-// allDatoCmsWork(sort: { fields: [position], order: ASC }) {
-//   edges {
-//     node {
-//       id
-//       title
-//       slug
-//       excerpt
-//       coverImage {
-//         fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-//           ...GatsbyDatoCmsSizes
-//         }
-//       }
-//     }
-//   }
-// }
