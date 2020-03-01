@@ -55,10 +55,16 @@ header
     p
         column-count: 2
 
+@media screen and (min-width: 601px)
+    .clickHamburger
+        display: none
+        
 @media screen and (max-width: 600px)
     header
         padding: 60px 25px
-
+    .clickHamburger
+        display: block
+    
     nav.main-nav 
         display: none
     .believers
