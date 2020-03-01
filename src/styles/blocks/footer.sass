@@ -4,7 +4,15 @@ footer
     font-size: 14px
     color: $dark-body-color
     font-weight: 100
-    margin-top: 4rem
-    border-top: 2px solid $border-color
+    
+    //border-top: 2px solid $border-color
+    display: flex
+    flex-wrap: wrap
     span
-        margin: 0 1rem
+        margin: 0.3rem 0rem
+        padding-right: 2rem
+        &:last-child
+            padding-right: 0
+@media screen and (max-width: 400px)
+    footer
+        padding: 2rem 1.5rem 3rem

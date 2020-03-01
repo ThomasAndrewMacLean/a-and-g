@@ -54,3 +54,88 @@ header
         margin-bottom: 1.5rem
     p
         column-count: 2
+
+@media screen and (max-width: 600px)
+    header
+        padding: 60px 25px
+
+    nav.main-nav 
+        display: none
+    .believers
+        p
+            column-count: 1
+
+@media screen and (max-width: 400px)
+    .believers
+        padding: 1.5rem
+.clickHamburger
+    cursor: pointer
+    position: relative
+    &:hover
+        .hamburger::after
+            width: 50px
+        .hamburger::before
+            width: 50px
+    &::after
+        position: absolute
+        width: 100%
+        height: 100%
+        content: ''
+        top: -1rem
+        padding: 1rem
+        box-sizing: content-box
+        left: -1rem
+.hamburger
+    margin-top: 6px
+    background: #8BC34A
+    width: 50px
+    height: 4px
+    position: relative
+    transition: all 300ms ease
+    z-index: 1
+    transform-origin: top right
+    &::after
+        background: #FFC107
+        position: absolute
+        width: 40px
+        height: 4px
+        content: ''
+        top: 10px
+        right: 0
+        transition: all 300ms ease
+    &::before
+        background: #2196F3
+        position: absolute
+        width: 30px
+        height: 4px
+        content: ''
+        top: 20px
+        right: 0
+        transition: all 300ms ease
+        transform-origin: left !important
+        
+.menu-open
+    .hamburger
+        background: pink
+        transform: rotate(-45deg)
+        
+    .hamburger::after
+        background: pink
+        top: 0 !important
+    .hamburger::before
+        background: pink
+        transform: rotate(-90deg) translateX(-5px) translateY(25px)
+        transform-origin: top right
+        width: 50px 
+
+.mobile-nav
+    position: absolute
+    left: -150px
+    transition: left 200ms ease-in
+    a
+        width: 100%
+        height: 100%
+        padding: 1rem 
+        display: inline-block
+    &.menu-open
+        left: 2rem !important
