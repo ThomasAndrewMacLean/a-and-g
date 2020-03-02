@@ -26,7 +26,11 @@ const WorkshopsPage = ({ data, location }) => {
                     <div key={work.id} className="showcase__item">
                         <figure className="card">
                             <Link
-                                to={`/workshops/${work.titel}`}
+                                to={`/workshops/${work.titel
+                                    .split('?')
+                                    .join('')
+                                    .split(' ')
+                                    .join('_')}`}
                                 className="card__image"
                             >
                                 <Img fluid={work.afbeelding.fluid} />

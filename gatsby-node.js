@@ -18,7 +18,11 @@ exports.createPages = ({ graphql, actions }) => {
         `).then(result => {
             result.data.allDatoCmsWorkshop.edges.map(({ node: work }) => {
                 createPage({
-                    path: `workshops/${work.titel}`,
+                    path: `workshops/${work.titel
+                        .split('?')
+                        .join('')
+                        .split(' ')
+                        .join('_')}`,
                     component: path.resolve(`./src/templates/workshop.js`),
                     context: {
                         titel: work.titel
