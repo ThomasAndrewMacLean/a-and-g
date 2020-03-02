@@ -101,7 +101,7 @@ const TemplateWrapper = ({ children, location }) => {
                                 </li>
                             </ul>
                         </nav>
-                        <div
+                        <button
                             onClick={() => setShowMenu(!showMenu)}
                             className={
                                 showMenu
@@ -110,7 +110,7 @@ const TemplateWrapper = ({ children, location }) => {
                             }
                         >
                             <div className="hamburger"></div>
-                        </div>
+                        </button>
                     </header>
                     <nav
                         className={

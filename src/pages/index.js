@@ -11,7 +11,7 @@ const IndexPage = ({ data, location }) => {
             Math.floor(Math.random() * data.datoCmsTekeningen.tekeningen.length)
         ];
     };
-    const [afbeelding, setAfbeelding] = useState(getAfbeelding());
+    const [afbeelding] = useState(getAfbeelding());
     const [email, setEmail] = useState('');
 
     useEffect(() => {
