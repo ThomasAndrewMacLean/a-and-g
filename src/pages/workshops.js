@@ -34,13 +34,15 @@ const WorkshopsPage = ({ data, location }) => {
                                 className="card__image"
                             >
                                 <Img fluid={work.afbeelding.fluid} />
+                                <figcaption className="card__caption">
+                                    <h6 className="card__title">
+                                        {work.titel}
+                                    </h6>
+                                    <div className="card__description">
+                                        <p>{work.ondertitel}</p>
+                                    </div>
+                                </figcaption>
                             </Link>
-                            <figcaption className="card__caption">
-                                <h6 className="card__title">{work.titel}</h6>
-                                <div className="card__description">
-                                    <p>{work.ondertitel}</p>
-                                </div>
-                            </figcaption>
                         </figure>
                     </div>
                 ))}
