@@ -13,7 +13,7 @@ const IndexPage = ({ data, location }) => {
     };
     const [afbeelding] = useState(getAfbeelding());
     const [email, setEmail] = useState('');
-
+    const [processed, setProcessed] = useState(false);
     useEffect(() => {
         // setInterval(() => {
         //     setAfbeelding(getAfbeelding());
@@ -25,7 +25,23 @@ const IndexPage = ({ data, location }) => {
     };
     const saveEmail = e => {
         e.preventDefault();
-        console.log(email);
+        if (processed) return;
+        setProcessed(true);
+        fetch(
+            'https://europe-west1-a-and-g.cloudfunctions.net/addToMailingList',
+            {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email })
+            }
+        )
+            .then(x => x.json())
+            .then(y => {
+                console.log(y);
+            });
     };
     return (
         <Layout location={location}>
