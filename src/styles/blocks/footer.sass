@@ -31,8 +31,14 @@ footer
     span
         margin: 0.3rem 0rem
         padding-right: 2rem
+        &::after
+            content: '/'
+            padding-left: 1rem
+            position: absolute
         &:last-child
             padding-right: 0
+            &::after
+                content: ''
 @media screen and (max-width: 400px)
     footer
         padding: 2rem 1.5rem 3rem
