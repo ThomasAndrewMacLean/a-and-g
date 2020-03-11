@@ -1,1 +1,2 @@
--https://metamug.com/article/php-mailchimp-api-add-subscriber-email.html
+- https://metamug.com/article/php-mailchimp-api-add-subscriber-email.html
+- https://theoephraim.github.io/node-google-spreadsheet/#/
