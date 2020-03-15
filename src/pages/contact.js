@@ -83,7 +83,6 @@ export const query = graphql`
           html
         }
       }
-      copyright
       address {
         latitude
         longitude

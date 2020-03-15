@@ -32,7 +32,6 @@ const TemplateWrapper = ({ children, location }) => {
                 html
               }
             }
-            copyright
           }
           allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
             edges {
@@ -80,6 +79,14 @@ const TemplateWrapper = ({ children, location }) => {
                   }
                 >
                   <Link to="/contact">contact</Link>
+                </li>
+
+                <li
+                  className={
+                    location.pathname.includes("/believers") ? "active" : ""
+                  }
+                >
+                  <Link to="/believers">believers</Link>
                 </li>
               </ul>
             </nav>

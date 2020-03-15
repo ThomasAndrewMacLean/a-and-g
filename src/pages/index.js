@@ -61,13 +61,17 @@ const IndexPage = ({ data, location }) => {
 
           <div className="showcase__item">
             <div className="intro">
-              <h6 className="card__title">
-                <strong>Tekeningen...</strong>
-                <br />
-                uit liefde
-              </h6>
+              <h6
+                className="card__title"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    data.datoCmsHome.blokTekeningenNode.childMarkdownRemark.html
+                }}
+              ></h6>
               <Link to={`/tekeningen/`}>
-                <button className="card__button">neem een kijkje</button>
+                <button className="card__button">
+                  {data.datoCmsHome.blokTekeningenKnop}
+                </button>
               </Link>
             </div>
           </div>
@@ -80,13 +84,17 @@ const IndexPage = ({ data, location }) => {
 
           <div className="showcase__item">
             <div className="intro">
-              <h6 className="card__title">
-                <strong>Workshops...</strong>
-                <br />
-                met passie
-              </h6>
+              <h6
+                className="card__title"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    data.datoCmsHome.blokWorkshopsNode.childMarkdownRemark.html
+                }}
+              />
               <Link to={`/workshops/`}>
-                <button className="card__button">neem een kijkje</button>
+                <button className="card__button">
+                  {data.datoCmsHome.blokWorkshopsKnop}
+                </button>
               </Link>
             </div>
           </div>
@@ -113,7 +121,7 @@ const IndexPage = ({ data, location }) => {
           </div>
           <div className="showcase__item">
             <div className="newsletter">
-              <h3>Blijf op de hoogte</h3>
+              <h3>{data.datoCmsHome.blockNieuwsbrief}</h3>
               <form onSubmit={saveEmail}>
                 <input
                   type="email"
@@ -122,7 +130,10 @@ const IndexPage = ({ data, location }) => {
                   required
                   placeholder="email"
                 />
-                <input type="submit" value="Schrijf mij in" />
+                <input
+                  type="submit"
+                  value={data.datoCmsHome.blokNieuwsbriefKnop}
+                />
               </form>
             </div>
           </div>
@@ -133,14 +144,17 @@ const IndexPage = ({ data, location }) => {
           </div>
           <div className="showcase__item">
             <div className="intro">
-              <h6 className="card__title">
-                <strong>Workshops...</strong>
-                <br />
-                op maat <br />
-                voor een feest
-              </h6>
+              <h6
+                className="card__title"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    data.datoCmsHome.blokWorkshops2Node.childMarkdownRemark.html
+                }}
+              />
               <Link to={`/contact/`}>
-                <button className="card__button">neem contact op</button>
+                <button className="card__button">
+                  {data.datoCmsHome.blokWorkshops2Knop}
+                </button>
               </Link>
             </div>
           </div>
@@ -185,7 +199,26 @@ export const query = graphql`
           html
         }
       }
-      copyright
+      blokTekeningenNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      blokWorkshopsNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      blokWorkshops2Node {
+        childMarkdownRemark {
+          html
+        }
+      }
+      blokTekeningenKnop
+      blokWorkshopsKnop
+      blockNieuwsbrief
+      blokNieuwsbriefKnop
+      blokWorkshops2Knop
       address {
         latitude
         longitude
