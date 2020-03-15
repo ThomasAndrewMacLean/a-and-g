@@ -84,7 +84,9 @@ header
     position: relative
     border: none
     background: none
-    display: contents
+    display: flex
+    height: 100%
+    outline: none
     &:hover
         .hamburger::after
             width: 50px
@@ -92,8 +94,8 @@ header
             width: 50px
     &::after
         position: absolute
-        //width: 100%
-        height: 100%
+        height: 200%
+        width: 100%
         content: ''
         top: -1rem
         padding: 1rem

@@ -27,6 +27,10 @@ const TemplateWrapper = ({ children, location }) => {
             seoMetaTags {
               ...GatsbyDatoCmsSeoMetaTags
             }
+            address {
+              latitude
+              longitude
+            }
             introTextNode {
               childMarkdownRemark {
                 html
@@ -125,6 +129,13 @@ const TemplateWrapper = ({ children, location }) => {
               >
                 <Link to="/contact">contact</Link>
               </li>
+              <li
+                className={
+                  location.pathname.includes("/believers") ? "active" : ""
+                }
+              >
+                <Link to="/believers">believers</Link>
+              </li>
             </ul>
           </nav>
           <div className="container__body">{children}</div>
@@ -163,6 +174,14 @@ const TemplateWrapper = ({ children, location }) => {
               <span>{data.datoCmsHome.addressText}</span>
               <span>{data.datoCmsHome.telephone}</span>
               <span>{data.datoCmsHome.email}</span>
+              <span>
+                <a
+                  target="_blank"
+                  href={`https://maps.google.com/?q=${data.datoCmsHome.address.latitude},${data.datoCmsHome.address.longitude}`}
+                >
+                  vind ons op google maps
+                </a>
+              </span>
             </div>
           </footer>
         </div>
