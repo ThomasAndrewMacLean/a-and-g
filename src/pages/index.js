@@ -53,22 +53,6 @@ const IndexPage = ({ data, location }) => {
             ></div>
           </div>
 
-          {/* <div className="showcase__item">
-            <div className="newsletter">
-              <h3>Blijf op de hoogte</h3>
-              <form onSubmit={saveEmail}>
-                <input
-                  type="email"
-                  name="email"
-                  onChange={updateEmail}
-                  required
-                  placeholder="email"
-                />
-                <input type="submit" value="Schrijf mij in" />
-              </form>
-            </div>
-          </div> */}
-
           <div className="showcase__item">
             <figure className="card">
               <Img fluid={data.datoCmsTekeningen.tekeningen[0].fluid} />
@@ -80,11 +64,10 @@ const IndexPage = ({ data, location }) => {
               <h6 className="card__title">
                 <strong>Tekeningen...</strong>
                 <br />
-                gemaakt <br />
-                met liefde
+                uit liefde
               </h6>
               <Link to={`/tekeningen/`}>
-                <button className="card__button">bekijk alles</button>
+                <button className="card__button">neem een kijkje</button>
               </Link>
             </div>
           </div>
@@ -100,11 +83,10 @@ const IndexPage = ({ data, location }) => {
               <h6 className="card__title">
                 <strong>Workshops...</strong>
                 <br />
-                gemaakt <br />
                 met passie
               </h6>
               <Link to={`/workshops/`}>
-                <button className="card__button">bekijk alles</button>
+                <button className="card__button">neem een kijkje</button>
               </Link>
             </div>
           </div>
@@ -129,13 +111,39 @@ const IndexPage = ({ data, location }) => {
               <Img fluid={data.datoCmsTekeningen.tekeningen[3].fluid} />
             </figure>
           </div>
-
+          <div className="showcase__item">
+            <div className="newsletter">
+              <h3>Blijf op de hoogte</h3>
+              <form onSubmit={saveEmail}>
+                <input
+                  type="email"
+                  name="email"
+                  onChange={updateEmail}
+                  required
+                  placeholder="email"
+                />
+                <input type="submit" value="Schrijf mij in" />
+              </form>
+            </div>
+          </div>
           <div className="showcase__item">
             <figure className="card">
               <Img fluid={data.datoCmsTekeningen.tekeningen[4].fluid} />
             </figure>
           </div>
-
+          <div className="showcase__item">
+            <div className="intro">
+              <h6 className="card__title">
+                <strong>Workshops...</strong>
+                <br />
+                op maat <br />
+                voor een feest
+              </h6>
+              <Link to={`/contact/`}>
+                <button className="card__button">neem contact op</button>
+              </Link>
+            </div>
+          </div>
           <div className="showcase__item">
             <figure className="card">
               <Img fluid={data.datoCmsTekeningen.tekeningen[5].fluid} />
