@@ -20,6 +20,11 @@ const BloemenPage = ({ data }) => {
     "#f8f024"
   ];
 
+  let location = "";
+  if (typeof window !== "undefined") {
+    location = window.location.search;
+  }
+
   useEffect(() => {
     if (typeof window === "undefined" || !window.document) {
       return;
@@ -29,7 +34,8 @@ const BloemenPage = ({ data }) => {
     if (countFromUrlSplit.length === 2) {
       setCount(parseInt(countFromUrlSplit[1]));
     }
-  }, [window.location.search]);
+  }, [location]);
+
   useEffect(() => {
     if (typeof window === "undefined" || !window.document) {
       return;
@@ -78,7 +84,6 @@ const BloemenPage = ({ data }) => {
               __html: a.node.bronwerkNode.childMarkdownRemark.html
             }}
           ></div>
-          {/* <div dangerouslySetInnerHTML={{ __html: a.node.bronwerk }}></div> */}
 
           <div className="uitleg">{a.node.uitleg}</div>
         </article>

@@ -16,6 +16,7 @@ html
 h2
     font-size: 2rem
     color: black
+    word-break: break-word
     font-family: 'Playfair Display', serif
     margin-bottom: 1rem
 a
@@ -50,24 +51,35 @@ button[disabled]
     cursor: inherit
     pointer-events: none
     border: 3px solid #888
-button:hover,
+
+@media (hover: hover)
+    button:hover
+        background: #444
+        color: #FFF
+
 button:active
     background: #444
     color: #FFF
-
 .button-wrap
     display: flex
+    flex-wrap: wrap
     justify-content: space-between
     padding: 2rem 1rem
 .goHome
     border: none
     background: none
 
-.goHome:hover,
-    color: black
-    border: none
-    background: none
-
+@media (hover: hover)
+    .goHome:hover
+        color: black
+        border: none
+        background: none
+        position: relative
+    .goHome:hover::after
+        content: '🌼'
+        padding-left: 8px
+        margin-top: -5px
+        position: absolute
 .goHome[disabled]
     border: none
     background: none
