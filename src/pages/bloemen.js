@@ -79,7 +79,7 @@ const BloemenPage = ({ data }) => {
   };
   return (
     <main className="bloemenPage">
-      <button className="info-knop">ℹ</button>
+      <button className="info-knop">i</button>
       <div className="info-modal">
         <ul>
           <li>
