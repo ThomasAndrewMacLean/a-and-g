@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import "../styles/blocks/bloemen.sass";
 
-const BloemenPage = ({ data }) => {
+const BloemenPage = ({ data, location }) => {
   const [count, setCount] = useState(0);
   const a = data.allDatoCmsBloem.edges[count - 1];
 
@@ -20,7 +20,19 @@ const BloemenPage = ({ data }) => {
     "#83877d",
     "#f8f024"
   ];
-  document.querySelector("html").style.backgroundColor = colors[count];
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.document) {
+      return;
+    }
+    console.log(window.location.search);
+  }, [location]);
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.document) {
+      return;
+    }
+    document.querySelector("html").style.backgroundColor = colors[count];
+  }, [count]);
 
   return (
     <main className="bloemenPage">
@@ -74,6 +86,14 @@ const BloemenPage = ({ data }) => {
           onClick={() => {
             setCount(count - 1);
             window.scrollTo({ top: 0, behavior: "smooth" });
+            var newurl =
+              window.location.protocol +
+              "//" +
+              window.location.host +
+              window.location.pathname +
+              "?count=" +
+              parseInt(count - 1);
+            window.history.pushState({ path: newurl }, "", newurl);
           }}
         >
           Vorige
@@ -83,6 +103,14 @@ const BloemenPage = ({ data }) => {
           onClick={() => {
             setCount(count + 1);
             window.scrollTo({ top: 0, behavior: "smooth" });
+            var newurl =
+              window.location.protocol +
+              "//" +
+              window.location.host +
+              window.location.pathname +
+              "?count=" +
+              parseInt(count + 1);
+            window.history.pushState({ path: newurl }, "", newurl);
           }}
         >
           Volgende
