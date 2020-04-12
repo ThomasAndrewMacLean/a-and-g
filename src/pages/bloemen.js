@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import "../styles/blocks/bloemen.sass";
+import axios from "axios";
 
 const BloemenPage = ({ data }) => {
   const [count, setCount] = useState(0);
+  const [sentPic, setSentPic] = useState(false);
   const a = data.allDatoCmsBloem.edges[count - 1];
   const colors = [
     "black",
@@ -43,6 +45,36 @@ const BloemenPage = ({ data }) => {
     document.querySelector("html").style.backgroundColor = colors[count];
   }, [count]);
 
+  const handleChange = files => {
+    const file = files[0];
+
+    var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+    if (validImageTypes.indexOf(file.type) === -1) {
+      console.log("wrong type");
+      return;
+    }
+    //   const cloudName = 'dizmjjtge';
+    var fd = new FormData();
+    fd.append("upload_preset", "shspmpte");
+    fd.append("tags", "bloemendoendromen"); // Optional - add tag for image admin in Cloudinary
+    fd.append("cloud_name", "dhtcvwwoz");
+    fd.append("file", file);
+
+    axios("https://api.cloudinary.com/v1_1/dhtcvwwoz/image/upload", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencode"
+      },
+      data: fd
+    })
+      .then(img => {
+        console.log(img);
+        setSentPic(true);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
   return (
     <main className="bloemenPage">
       <button className="info-knop">ℹ</button>
@@ -79,6 +111,21 @@ const BloemenPage = ({ data }) => {
             ogen de kost en laat je verbeelding maar vrij. En vergeet niet: geen
             bloem bloeit zonder waarom…
           </p>
+
+          {sentPic ? (
+            <p>Dank je wel!!!</p>
+          ) : (
+            <label id="uploadLabel" htmlFor="upload">
+              Klik hier om een foto van je kunstwerk naar ons te sturen
+            </label>
+          )}
+          <input
+            id="upload"
+            type="file"
+            accept="image/*"
+            capture="camera"
+            onChange={e => handleChange(e.target.files)}
+          />
         </div>
       ) : (
         <article>
