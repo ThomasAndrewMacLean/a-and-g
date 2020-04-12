@@ -102,6 +102,23 @@ const BloemenPage = ({ data }) => {
           Vorige
         </button>
         <button
+          className="goHome"
+          disabled={count === 0}
+          onClick={() => {
+            setCount(parseInt(0));
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            var newurl =
+              window.location.protocol +
+              "//" +
+              window.location.host +
+              window.location.pathname +
+              "?count=0";
+            window.history.pushState({ path: newurl }, "", newurl);
+          }}
+        >
+          Startpagina
+        </button>
+        <button
           disabled={count === 10}
           onClick={() => {
             setCount(parseInt(count + 1));
