@@ -89,3 +89,41 @@ button:active
 .goHome[disabled]
     border: none
     background: none
+
+.info-knop
+    position: absolute
+    border: 3px solid #444
+    color: #444
+    background: none
+    height: 50px
+    width: 50px
+    border-radius: 50px
+    padding: 0
+    display: flex
+    font-size: 2rem
+    justify-content: center
+    align-items: center
+    top: 2rem
+    right: 2rem
+
+.info-knop:active +div
+.info-knop:hover +div
+    opacity: 1
+
+.info-modal
+    opacity: 0
+    transition: all 300ms ease 100ms
+    background: #444
+    color: #fff
+    font-size: 1rem
+    padding: 2rem
+    position: absolute
+    width: 50vw
+    max-width: 250px
+    height: auto
+    overflow: hidden
+    z-index: 1
+    pointer-events: none
+    top: 2rem
+    right: 2rem
+    border-radius: 25px

@@ -45,6 +45,14 @@ const BloemenPage = ({ data }) => {
 
   return (
     <main className="bloemenPage">
+      <button className="info-knop">ℹ</button>
+      <div className="info-modal">
+        <ul>
+          <li>Een initiatief van Annouk Westerling (a.gizzles)</li>
+          <li>Alle tekst: © Tom De Mette 2020 (aka cadavre exquis)</li>
+          <li>Webdesign: Thomas MacLean</li>
+        </ul>
+      </div>
       {count === 0 ? (
         <div className="frontpage">
           <h1>Als bloemen vertellen…</h1>
