@@ -53,6 +53,9 @@ const BloemenPage = ({ data }) => {
       console.log("wrong type");
       return;
     }
+
+    setSentPic(true);
+
     //   const cloudName = 'dizmjjtge';
     var fd = new FormData();
     fd.append("upload_preset", "shspmpte");
@@ -69,7 +72,6 @@ const BloemenPage = ({ data }) => {
     })
       .then(img => {
         console.log(img);
-        setSentPic(true);
       })
       .catch(err => {
         console.log(err);
