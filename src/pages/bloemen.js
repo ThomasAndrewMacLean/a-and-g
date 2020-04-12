@@ -3,10 +3,9 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import "../styles/blocks/bloemen.sass";
 
-const BloemenPage = ({ data, location }) => {
+const BloemenPage = ({ data }) => {
   const [count, setCount] = useState(0);
   const a = data.allDatoCmsBloem.edges[count - 1];
-
   const colors = [
     "black",
     "#019aa6",
@@ -25,8 +24,12 @@ const BloemenPage = ({ data, location }) => {
     if (typeof window === "undefined" || !window.document) {
       return;
     }
-    console.log(window.location.search);
-  }, [location]);
+    const countFromUrlSplit = window.location.search.split("count=");
+    console.log(countFromUrlSplit);
+    if (countFromUrlSplit.length === 2) {
+      setCount(parseInt(countFromUrlSplit[1]));
+    }
+  }, [window.location.search]);
   useEffect(() => {
     if (typeof window === "undefined" || !window.document) {
       return;
@@ -84,7 +87,7 @@ const BloemenPage = ({ data, location }) => {
         <button
           disabled={count === 0}
           onClick={() => {
-            setCount(count - 1);
+            setCount(parseInt(count - 1));
             window.scrollTo({ top: 0, behavior: "smooth" });
             var newurl =
               window.location.protocol +
@@ -101,7 +104,7 @@ const BloemenPage = ({ data, location }) => {
         <button
           disabled={count === 10}
           onClick={() => {
-            setCount(count + 1);
+            setCount(parseInt(count + 1));
             window.scrollTo({ top: 0, behavior: "smooth" });
             var newurl =
               window.location.protocol +
