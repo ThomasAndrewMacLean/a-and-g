@@ -48,6 +48,9 @@ const BloemenPage = ({ data }) => {
       <button className="info-knop">ℹ</button>
       <div className="info-modal">
         <ul>
+          <li>
+            <strong>Deel je eigen kunstwerk #bloemendoendromen</strong>
+          </li>
           <li>Een initiatief van Annouk Westerling (a.gizzles)</li>
           <li>Alle tekst: © Tom De Mette 2020 (aka cadavre exquis)</li>
           <li>Webdesign: Thomas MacLean</li>
