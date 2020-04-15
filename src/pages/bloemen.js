@@ -19,7 +19,7 @@ const BloemenPage = ({ data }) => {
     "#ff5780",
     "#8c9569",
     "#83877d",
-    "#f8f024"
+    "#f8f024",
   ];
 
   let location = "";
@@ -42,10 +42,11 @@ const BloemenPage = ({ data }) => {
     if (typeof window === "undefined" || !window.document) {
       return;
     }
+    document.querySelector("body").style.margin = "15px";
     document.querySelector("html").style.backgroundColor = colors[count];
   }, [count]);
 
-  const handleChange = files => {
+  const handleChange = (files) => {
     const file = files[0];
 
     var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
@@ -66,14 +67,14 @@ const BloemenPage = ({ data }) => {
     axios("https://api.cloudinary.com/v1_1/dhtcvwwoz/image/upload", {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencode"
+        "Content-Type": "application/x-www-form-urlencode",
       },
-      data: fd
+      data: fd,
     })
-      .then(img => {
+      .then((img) => {
         console.log(img);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
@@ -83,7 +84,9 @@ const BloemenPage = ({ data }) => {
       <div className="info-modal">
         <ul>
           <li>
-            <strong>Deel je eigen kunstwerk #bloemendoendromen</strong>
+            <strong className="strong">
+              Deel je eigen kunstwerk #bloemendoendromen
+            </strong>
           </li>
           <li>Een initiatief van Annouk Westerling (a.gizzles)</li>
           <li>Alle tekst: © Tom De Mette 2020 (aka cadavre exquis)</li>
@@ -126,7 +129,7 @@ const BloemenPage = ({ data }) => {
             type="file"
             accept="image/*"
             capture="camera"
-            onChange={e => handleChange(e.target.files)}
+            onChange={(e) => handleChange(e.target.files)}
           />
         </div>
       ) : (
@@ -141,7 +144,7 @@ const BloemenPage = ({ data }) => {
           <div
             className="info"
             dangerouslySetInnerHTML={{
-              __html: a.node.bronwerkNode.childMarkdownRemark.html
+              __html: a.node.bronwerkNode.childMarkdownRemark.html,
             }}
           ></div>
 

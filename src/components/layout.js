@@ -47,7 +47,7 @@ const TemplateWrapper = ({ children, location }) => {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <div className={`container ${showMenu ? "is-open" : ""}`}>
           <HelmetDatoCms
             favicon={data.datoCmsSite.faviconMetaTags}
@@ -147,8 +147,8 @@ const TemplateWrapper = ({ children, location }) => {
                   className="social-icon"
                   href={
                     data.allDatoCmsSocialProfile.edges
-                      .map(x => x.node)
-                      .find(x => x.profileType === "Facebook").url
+                      .map((x) => x.node)
+                      .find((x) => x.profileType === "Facebook").url
                   }
                   target="_blank"
                   rel="noopener noreferrer"
@@ -160,8 +160,8 @@ const TemplateWrapper = ({ children, location }) => {
                   className="social-icon"
                   href={
                     data.allDatoCmsSocialProfile.edges
-                      .map(x => x.node)
-                      .find(x => x.profileType === "Instagram").url
+                      .map((x) => x.node)
+                      .find((x) => x.profileType === "Instagram").url
                   }
                   target="_blank"
                   rel="noopener noreferrer"
@@ -174,14 +174,9 @@ const TemplateWrapper = ({ children, location }) => {
               <span>{data.datoCmsHome.addressText}</span>
               <span>{data.datoCmsHome.telephone}</span>
               <span>{data.datoCmsHome.email}</span>
-              <span>
-                <a
-                  target="_blank"
-                  href={`https://maps.google.com/?q=${data.datoCmsHome.address.latitude},${data.datoCmsHome.address.longitude}`}
-                >
-                  vind ons op google maps
-                </a>
-              </span>
+            </div>
+            <div className="footer-madewith">
+              Made with ❤️ 2020 © Westerling & MacLean
             </div>
           </footer>
         </div>
@@ -191,7 +186,7 @@ const TemplateWrapper = ({ children, location }) => {
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.object,
 };
 
 export default TemplateWrapper;

@@ -46,7 +46,7 @@ const IndexPage = ({ data, location }) => {
         <Masonry className="showcase">
           <div className="showcase__item">
             <div
-              className="intro"
+              className="intro intro-text"
               dangerouslySetInnerHTML={{
                 __html: data.datoCmsHome.introTextNode.childMarkdownRemark.html
               }}
@@ -60,7 +60,7 @@ const IndexPage = ({ data, location }) => {
           </div>
 
           <div className="showcase__item">
-            <div className="intro">
+            <div className="intro tekeningen">
               <h6
                 className="card__title"
                 dangerouslySetInnerHTML={{
@@ -83,7 +83,7 @@ const IndexPage = ({ data, location }) => {
           </div>
 
           <div className="showcase__item">
-            <div className="intro">
+            <div className="intro workshop">
               <h6
                 className="card__title"
                 dangerouslySetInnerHTML={{
@@ -104,9 +104,10 @@ const IndexPage = ({ data, location }) => {
               <Img fluid={data.datoCmsTekeningen.tekeningen[2].fluid} />
             </figure>
           </div>
+
           <div className="showcase__item">
             <div
-              className="intro"
+              className="intro intro-text2"
               dangerouslySetInnerHTML={{
                 __html:
                   data.datoCmsHome.introtekstDeel2Node.childMarkdownRemark.html
@@ -143,7 +144,7 @@ const IndexPage = ({ data, location }) => {
             </figure>
           </div>
           <div className="showcase__item">
-            <div className="intro">
+            <div className="intro workshop2">
               <h6
                 className="card__title"
                 dangerouslySetInnerHTML={{

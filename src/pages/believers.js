@@ -16,63 +16,65 @@ const BelieversPage = ({ data, location }) => {
               dangerouslySetInnerHTML={{
                 __html:
                   data.datoCmsBeliever.jaarlijkseBijdrage1Node
-                    .childMarkdownRemark.html
+                    .childMarkdownRemark.html,
               }}
             ></div>
           </div>
 
-          <div className="showcase__item">
-            <div
-              className="intro"
-              dangerouslySetInnerHTML={{
-                __html:
-                  data.datoCmsBeliever.quote1Node
-                    .childMarkdownRemark.html
-              }}
-            ></div>
-          </div>
+          {data.datoCmsBeliever.quote1Node.childMarkdownRemark.html && (
+            <div className="showcase__item">
+              <div
+                className="intro"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    data.datoCmsBeliever.quote1Node.childMarkdownRemark.html,
+                }}
+              ></div>
+            </div>
+          )}
           <div className="showcase__item">
             <div
               className="intro"
               dangerouslySetInnerHTML={{
                 __html:
                   data.datoCmsBeliever.jaarlijkseBijdrage2Node
-                    .childMarkdownRemark.html
+                    .childMarkdownRemark.html,
               }}
             ></div>
           </div>
+          {data.datoCmsBeliever.quote2Node.childMarkdownRemark.html && (
+            <div className="showcase__item">
+              <div
+                className="intro"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    data.datoCmsBeliever.quote2Node.childMarkdownRemark.html,
+                }}
+              ></div>
+            </div>
+          )}
 
-          <div className="showcase__item">
-            <div
-              className="intro"
-              dangerouslySetInnerHTML={{
-                __html:
-                  data.datoCmsBeliever.quote2Node
-                    .childMarkdownRemark.html
-              }}
-            ></div>
-          </div>
           <div className="showcase__item">
             <div
               className="intro"
               dangerouslySetInnerHTML={{
                 __html:
                   data.datoCmsBeliever.jaarlijkseBijdrage3Node
-                    .childMarkdownRemark.html
+                    .childMarkdownRemark.html,
               }}
             ></div>
           </div>
-
-          <div className="showcase__item">
-            <div
-              className="intro"
-              dangerouslySetInnerHTML={{
-                __html:
-                  data.datoCmsBeliever.quote3Node
-                    .childMarkdownRemark.html
-              }}
-            ></div>
-          </div>
+          {data.datoCmsBeliever.quote3Node.childMarkdownRemark.html && (
+            <div className="showcase__item">
+              <div
+                className="intro"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    data.datoCmsBeliever.quote3Node.childMarkdownRemark.html,
+                }}
+              ></div>
+            </div>
+          )}
         </Masonry>
       </div>
     </Layout>
