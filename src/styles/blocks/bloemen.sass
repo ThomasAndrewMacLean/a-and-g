@@ -1,138 +1,139 @@
 html
     transition: background-color 300ms ease
-.frontpage
-    //min-height: 80vh
-    padding: 3rem 1rem 0
-    h1
-        font-size: 3rem
-        font-family: 'Playfair Display', serif
-        color: black
-        padding: 2rem 0 1rem
-    h2
-        color: #444
-    h3
-        color: #666
-        font-size: 0.8rem
-h2
-    font-size: 2rem
-    color: black
-    word-break: break-word
-    font-family: 'Playfair Display', serif
-    margin-bottom: 1rem
-a
-    text-decoration: underline
-main
+main.bloemenPage
     max-width: 600px
     margin: auto
-article
-    padding: 3rem 1rem
+    .frontpage
+        //min-height: 80vh
+        padding: 3rem 1rem 0
+        h1
+            font-size: 3rem
+            font-family: 'Playfair Display', serif
+            color: black
+            padding: 2rem 0 1rem
+        h2
+            color: #444
+        h3
+            color: #666
+            font-size: 0.8rem
+    h2
+        font-size: 2rem
+        color: black
+        word-break: break-word
+        font-family: 'Playfair Display', serif
+        margin-bottom: 1rem
+    a
+        text-decoration: underline
 
-.uitleg
-    line-height: 1.8rem
-    padding: 2rem 0
+    article
+        padding: 3rem 1rem
 
-.info
-    display: inline-block
-    padding-right: 7px
-    padding-top: 5px
-    color: #666
-    font-size: 0.8rem
-.button-wrap
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-between
-    padding: 2rem 1rem
-    button
-        padding: 1rem 2rem
-        cursor: pointer
-        font-size: inherit
-        font-family: inherit
-        background: white
-        border: 3px solid #444
-        transition: all 300ms ease
-        outline: none
-        @media screen and (max-width: 500px)
-            width: 100%
+    .uitleg
+        line-height: 1.8rem
+        padding: 2rem 0
 
-    button[disabled]
-            cursor: inherit
-            pointer-events: none
-            border: 3px solid #888
+    .info
+        display: inline-block
+        padding-right: 7px
+        padding-top: 5px
+        color: #666
+        font-size: 0.8rem
+    .button-wrap
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        padding: 2rem 1rem
+        button
+            padding: 1rem 2rem
+            cursor: pointer
+            font-size: inherit
+            font-family: inherit
+            background: white
+            border: 3px solid #444
+            transition: all 300ms ease
+            outline: none
+            @media screen and (max-width: 500px)
+                width: 100%
 
-    @media (hover: hover)
-        button:hover
+        button[disabled]
+                cursor: inherit
+                pointer-events: none
+                border: 3px solid #888
+
+        @media (hover: hover)
+            button:hover
+                background: #444
+                color: #FFF
+
+        button:active
             background: #444
             color: #FFF
 
-    button:active
-        background: #444
-        color: #FFF
+        .goHome
+            border: none
+            background: none
+            @media screen and (max-width: 500px)
+                height: 67px
 
-    .goHome
-        border: none
-        background: none
-        @media screen and (max-width: 500px)
-            height: 67px
+        .goHome:hover
+            color: black
+            border: none
+            background: none
+            position: relative
+        .goHome:hover::after
+            content: '🌼'
+            padding-left: 8px
+            margin-top: -5px
+            position: absolute
+        .goHome[disabled]
+            border: none
+            background: none
 
-    .goHome:hover
-        color: black
-        border: none
-        background: none
-        position: relative
-    .goHome:hover::after
-        content: '🌼'
-        padding-left: 8px
-        margin-top: -5px
+    .info-knop
         position: absolute
-    .goHome[disabled]
-        border: none
-        background: none
+        border: 3px solid #444
+        color: #fff
+        background: #444
+        height: 40px
+        width: 40px
+        border-radius: 50px
+        padding: 0
+        display: flex
+        font-size: 1.5rem
+        justify-content: center
+        align-items: center
+        top: 2rem
+        right: 2rem
+        font-family: 'Playfair Display', serif
 
-.info-knop
-    position: absolute
-    border: 3px solid #444
-    color: #fff
-    background: #444
-    height: 40px
-    width: 40px
-    border-radius: 50px
-    padding: 0
-    display: flex
-    font-size: 1.5rem
-    justify-content: center
-    align-items: center
-    top: 2rem
-    right: 2rem
-    font-family: 'Playfair Display', serif
+    .info-knop:active +div
+    .info-knop:hover +div
+        opacity: 1
 
-.info-knop:active +div
-.info-knop:hover +div
-    opacity: 1
+    .info-modal
+        opacity: 0
+        transition: all 300ms ease 100ms
+        background: #444
+        color: #fff
+        font-size: 1rem
+        padding: 2rem
+        position: absolute
+        width: 50vw
+        max-width: 250px
+        height: auto
+        overflow: hidden
+        z-index: 1
+        pointer-events: none
+        top: 2rem
+        right: 2rem
+        border-radius: 25px
+    .strong
+        padding-bottom: 10px
+        display: block
 
-.info-modal
-    opacity: 0
-    transition: all 300ms ease 100ms
-    background: #444
-    color: #fff
-    font-size: 1rem
-    padding: 2rem
-    position: absolute
-    width: 50vw
-    max-width: 250px
-    height: auto
-    overflow: hidden
-    z-index: 1
-    pointer-events: none
-    top: 2rem
-    right: 2rem
-    border-radius: 25px
-.strong
-    padding-bottom: 10px
-    display: block
+    #upload
+        display: none
 
-#upload
-    display: none
-
-#uploadLabel
-    text-decoration: underline
-    cursor: pointer
+    #uploadLabel
+        text-decoration: underline
+        cursor: pointer

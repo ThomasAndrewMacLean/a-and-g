@@ -172,8 +172,16 @@ const TemplateWrapper = ({ children, location }) => {
             </div>
             <div className="footer-contact">
               <span>{data.datoCmsHome.addressText}</span>
-              <span>{data.datoCmsHome.telephone}</span>
-              <span>{data.datoCmsHome.email}</span>
+              <span>
+                <a href={"tel:" + data.datoCmsHome.telephone}>
+                  {data.datoCmsHome.telephone}
+                </a>
+              </span>
+              <span>
+                <a href={"mailto:" + data.datoCmsHome.email}>
+                  {data.datoCmsHome.email}
+                </a>
+              </span>
             </div>
             <div className="footer-madewith">
               Made with ❤️ 2020 © Westerling & MacLean
