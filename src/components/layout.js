@@ -153,7 +153,7 @@ const TemplateWrapper = ({ children, location }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="./icon-facebook.svg"></img>
+                  <img src="/icon-facebook.svg"></img>
                 </a>
 
                 <a
