@@ -1,6 +1,5 @@
 .believers
-
-    background: #a9bbdb
+    background: #fff
     color: #444
     padding: 4rem
     padding-bottom: 5rem
@@ -10,8 +9,14 @@
     h2
         font-size: 1.5rem
         margin-bottom: 1.5rem
-    p
+    em
+        font-weight: 500
+        display: block
+    blockquote
         column-count: 2
+        @media screen and (max-width: 750px)
+            column-count: 1
+
     ul
         list-style: circle
         margin-left: 15px

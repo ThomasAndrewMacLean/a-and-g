@@ -6,6 +6,8 @@ header
         font-size: 3rem
         font-weight: 400
         line-height: 3rem
+        font-family: roboto
+        color: #222
     ul
         display: flex
         li
@@ -32,18 +34,45 @@ header
                 top: -64px
 .container
     flex-direction: column
+.werk-wrap
+    &:hover
+        .werk_titel
+            opacity: 1
+.werk_titel
+    opacity: 0
+    z-index: 4
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    pointer-events: none
+    bottom: 0
+    display: flex
+    color: #222
+    justify-content: center
+    align-items: center
+    transition: opacity 300ms ease
 
 .intro.intro-text
     // background: #b1cb6a
     background: $white
     color: #444
+    strong
+        font-family: roboto
 .intro.tekeningen
-    background: #a9bbdb
+    background: #7fa8ef
+    button
+        color: #ffffff
+        background: #445a81
     button:hover
         background: #fffced
         color: #212121
 .intro.workshop
-    background: #f8e368
+    background: #f7e68b
+    button
+        background: #ccb42f
+        color: #ffffff
+
     button:hover
         background: #fffced
         color: #212121
@@ -53,7 +82,10 @@ header
     background: $white
     color: #444
 .intro.workshop2
-    background: #bcafc8
+    background: #d9c5eb
+    button
+        color: #ffffff
+        background: #6d5186
     button:hover
         background: #fffced
         color: #212121
@@ -85,9 +117,6 @@ header
 
     nav.main-nav
         display: none
-    .believers
-        p
-            column-count: 1
 
 @media screen and (max-width: 400px)
     .believers

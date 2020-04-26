@@ -20,10 +20,10 @@ const IndexPage = ({ data, location }) => {
     // }, 8000);
   }, []);
 
-  const updateEmail = e => {
+  const updateEmail = (e) => {
     setEmail(e.target.value);
   };
-  const saveEmail = e => {
+  const saveEmail = (e) => {
     e.preventDefault();
     if (processed) return;
     setProcessed(true);
@@ -31,12 +31,12 @@ const IndexPage = ({ data, location }) => {
       method: "POST",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email })
+      body: JSON.stringify({ email }),
     })
-      .then(x => x.json())
-      .then(y => {
+      .then((x) => x.json())
+      .then((y) => {
         console.log(y);
       });
   };
@@ -48,14 +48,20 @@ const IndexPage = ({ data, location }) => {
             <div
               className="intro intro-text"
               dangerouslySetInnerHTML={{
-                __html: data.datoCmsHome.introTextNode.childMarkdownRemark.html
+                __html: data.datoCmsHome.introTextNode.childMarkdownRemark.html,
               }}
             ></div>
           </div>
 
           <div className="showcase__item">
-            <figure className="card">
-              <Img fluid={data.datoCmsTekeningen.tekeningen[0].fluid} />
+            <figure className="card werk-wrap">
+              <Img
+                className="card__image"
+                fluid={data.datoCmsTekeningen.tekeningen[0].fluid}
+              />
+              <span className="werk_titel">
+                {data.datoCmsTekeningen.tekeningen[0].title}
+              </span>
             </figure>
           </div>
 
@@ -65,7 +71,8 @@ const IndexPage = ({ data, location }) => {
                 className="card__title"
                 dangerouslySetInnerHTML={{
                   __html:
-                    data.datoCmsHome.blokTekeningenNode.childMarkdownRemark.html
+                    data.datoCmsHome.blokTekeningenNode.childMarkdownRemark
+                      .html,
                 }}
               ></h6>
               <Link to={`/tekeningen/`}>
@@ -77,8 +84,14 @@ const IndexPage = ({ data, location }) => {
           </div>
 
           <div className="showcase__item">
-            <figure className="card">
-              <Img fluid={data.datoCmsTekeningen.tekeningen[1].fluid} />
+            <figure className="card werk-wrap">
+              <Img
+                className="card__image"
+                fluid={data.datoCmsTekeningen.tekeningen[1].fluid}
+              />
+              <span className="werk_titel">
+                {data.datoCmsTekeningen.tekeningen[1].title}
+              </span>
             </figure>
           </div>
 
@@ -88,7 +101,7 @@ const IndexPage = ({ data, location }) => {
                 className="card__title"
                 dangerouslySetInnerHTML={{
                   __html:
-                    data.datoCmsHome.blokWorkshopsNode.childMarkdownRemark.html
+                    data.datoCmsHome.blokWorkshopsNode.childMarkdownRemark.html,
                 }}
               />
               <Link to={`/workshops/`}>
@@ -100,9 +113,15 @@ const IndexPage = ({ data, location }) => {
           </div>
 
           <div className="showcase__item">
-            <figure className="card">
-              <Img fluid={data.datoCmsTekeningen.tekeningen[2].fluid} />
+            <figure className="card werk-wrap">
+              <Img
+                className="card__image"
+                fluid={data.datoCmsTekeningen.tekeningen[2].fluid}
+              />
             </figure>
+            <span className="werk_titel">
+              {data.datoCmsTekeningen.tekeningen[2].title}
+            </span>
           </div>
 
           <div className="showcase__item">
@@ -110,14 +129,20 @@ const IndexPage = ({ data, location }) => {
               className="intro intro-text2"
               dangerouslySetInnerHTML={{
                 __html:
-                  data.datoCmsHome.introtekstDeel2Node.childMarkdownRemark.html
+                  data.datoCmsHome.introtekstDeel2Node.childMarkdownRemark.html,
               }}
             ></div>
           </div>
 
           <div className="showcase__item">
-            <figure className="card">
-              <Img fluid={data.datoCmsTekeningen.tekeningen[3].fluid} />
+            <figure className="card werk-wrap">
+              <Img
+                className="card__image"
+                fluid={data.datoCmsTekeningen.tekeningen[3].fluid}
+              />
+              <span className="werk_titel">
+                {data.datoCmsTekeningen.tekeningen[3].title}
+              </span>
             </figure>
           </div>
           <div className="showcase__item">
@@ -131,16 +156,25 @@ const IndexPage = ({ data, location }) => {
                   required
                   placeholder="email"
                 />
-                <input
-                  type="submit"
-                  value={data.datoCmsHome.blokNieuwsbriefKnop}
-                />
+                <div>
+                  <input
+                    type="submit"
+                    className="button"
+                    value={data.datoCmsHome.blokNieuwsbriefKnop}
+                  />
+                </div>
               </form>
             </div>
           </div>
           <div className="showcase__item">
-            <figure className="card">
-              <Img fluid={data.datoCmsTekeningen.tekeningen[4].fluid} />
+            <figure className="card werk-wrap">
+              <Img
+                className="card__image"
+                fluid={data.datoCmsTekeningen.tekeningen[4].fluid}
+              />
+              <span className="werk_titel">
+                {data.datoCmsTekeningen.tekeningen[4].title}
+              </span>
             </figure>
           </div>
           <div className="showcase__item">
@@ -149,7 +183,8 @@ const IndexPage = ({ data, location }) => {
                 className="card__title"
                 dangerouslySetInnerHTML={{
                   __html:
-                    data.datoCmsHome.blokWorkshops2Node.childMarkdownRemark.html
+                    data.datoCmsHome.blokWorkshops2Node.childMarkdownRemark
+                      .html,
                 }}
               />
               <Link to={`/contact/`}>
@@ -160,8 +195,14 @@ const IndexPage = ({ data, location }) => {
             </div>
           </div>
           <div className="showcase__item">
-            <figure className="card">
-              <Img fluid={data.datoCmsTekeningen.tekeningen[5].fluid} />
+            <figure className="card werk-wrap">
+              <Img
+                className="card__image"
+                fluid={data.datoCmsTekeningen.tekeningen[5].fluid}
+              />
+              <span className="werk_titel">
+                {data.datoCmsTekeningen.tekeningen[5].title}
+              </span>
             </figure>
           </div>
         </Masonry>
@@ -170,7 +211,7 @@ const IndexPage = ({ data, location }) => {
       <div
         className="believers"
         dangerouslySetInnerHTML={{
-          __html: data.datoCmsHome.tekstBelieversNode.childMarkdownRemark.html
+          __html: data.datoCmsHome.tekstBelieversNode.childMarkdownRemark.html,
         }}
       ></div>
     </Layout>
@@ -215,8 +256,14 @@ export const query = graphql`
           html
         }
       }
+      blokBloemenNode {
+        childMarkdownRemark {
+          html
+        }
+      }
       blokTekeningenKnop
       blokWorkshopsKnop
+      blokBloemenKnop
       blockNieuwsbrief
       blokNieuwsbriefKnop
       blokWorkshops2Knop
@@ -230,6 +277,7 @@ export const query = graphql`
       tekeningen {
         filename
         url
+        title
         fluid(maxWidth: 300, imgixParams: { fm: "jpg", auto: "compress" }) {
           ...GatsbyDatoCmsSizes
         }
