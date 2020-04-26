@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
@@ -8,6 +8,13 @@ import "../styles/index.sass";
 
 const TemplateWrapper = ({ children, location }) => {
   const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.document) {
+      return;
+    }
+    document.querySelector("body").style.margin = "0";
+  }, []);
   return (
     <StaticQuery
       query={graphql`
