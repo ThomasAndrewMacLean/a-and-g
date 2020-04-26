@@ -54,6 +54,23 @@ const IndexPage = ({ data, location }) => {
           </div>
 
           <div className="showcase__item">
+            <div className="intro bloemen">
+              <h6
+                className="card__title"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    data.datoCmsHome.blokBloemenNode.childMarkdownRemark.html,
+                }}
+              />
+              <Link to={`/bloemen/`}>
+                <button className="card__button">
+                  {data.datoCmsHome.blokBloemenKnop}
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          <div className="showcase__item">
             <figure className="card werk-wrap">
               <Img
                 className="card__image"
