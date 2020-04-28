@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 
 import Masonry from "react-masonry-component";
 import Layout from "../components/layout";
+import DokterText from "../components/DokterText";
 
 const IndexPage = ({ data, location }) => {
-  // const getAfbeelding = () => {
-  //   return data.datoCmsTekeningen.tekeningen[
-  //     Math.floor(Math.random() * data.datoCmsTekeningen.tekeningen.length)
-  //   ];
-  // };
-  // const [afbeelding] = useState(getAfbeelding());
   const [email, setEmail] = useState("");
   const [processed, setProcessed] = useState(false);
-  useEffect(() => {
-    // setInterval(() => {
-    //     setAfbeelding(getAfbeelding());
-    // }, 8000);
-  }, []);
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -225,12 +215,7 @@ const IndexPage = ({ data, location }) => {
         </Masonry>
       </div>
 
-      <div
-        className="believers"
-        dangerouslySetInnerHTML={{
-          __html: data.datoCmsHome.tekstBelieversNode.childMarkdownRemark.html,
-        }}
-      ></div>
+      <DokterText></DokterText>
     </Layout>
   );
 };
@@ -249,11 +234,6 @@ export const query = graphql`
         }
       }
       introtekstDeel2Node {
-        childMarkdownRemark {
-          html
-        }
-      }
-      tekstBelieversNode {
         childMarkdownRemark {
           html
         }
@@ -302,19 +282,3 @@ export const query = graphql`
     }
   }
 `;
-
-// allDatoCmsWork(sort: { fields: [position], order: ASC }) {
-//   edges {
-//     node {
-//       id
-//       title
-//       slug
-//       excerpt
-//       coverImage {
-//         fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-//           ...GatsbyDatoCmsSizes
-//         }
-//       }
-//     }
-//   }
-// }
