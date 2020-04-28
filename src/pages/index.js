@@ -1,217 +1,67 @@
-import React, { useState } from "react";
-import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
-
+import React from "react";
+import { graphql } from "gatsby";
 import Masonry from "react-masonry-component";
 import Layout from "../components/layout";
 import DokterText from "../components/DokterText";
+import Tekening from "../components/Tekening";
+import CtaBlock from "../components/CtaBlock";
+import NewsLetter from "../components/NewsLetter";
 
 const IndexPage = ({ data, location }) => {
-  const [email, setEmail] = useState("");
-  const [processed, setProcessed] = useState(false);
-
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const saveEmail = (e) => {
-    e.preventDefault();
-    if (processed) return;
-    setProcessed(true);
-    fetch("https://europe-west1-a-and-g.cloudfunctions.net/addToMailingList", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    })
-      .then((x) => x.json())
-      .then((y) => {
-        console.log(y);
-      });
-  };
   return (
     <Layout location={location}>
       <div className="pusher">
         <Masonry className="showcase">
-          <div className="showcase__item">
-            <div
-              className="intro intro-text"
-              dangerouslySetInnerHTML={{
-                __html: data.datoCmsHome.introTextNode.childMarkdownRemark.html,
-              }}
-            ></div>
-          </div>
+          <CtaBlock
+            ctaClass="intro-text"
+            text={data.datoCmsHome.introTextNode.childMarkdownRemark.html}
+          />
 
-          <div className="showcase__item">
-            <div className="intro bloemen">
-              <h6
-                className="card__title"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    data.datoCmsHome.blokBloemenNode.childMarkdownRemark.html,
-                }}
-              />
-              <Link to={`/bloemen/`}>
-                <button className="card__button">
-                  {data.datoCmsHome.blokBloemenKnop}
-                </button>
-              </Link>
-            </div>
-          </div>
+          <CtaBlock
+            ctaClass="bloemen"
+            linkTo="/bloemen/"
+            text={data.datoCmsHome.blokBloemenNode.childMarkdownRemark.html}
+            buttonText={data.datoCmsHome.blokBloemenKnop}
+          />
 
-          <div className="showcase__item">
-            <figure className="card werk-wrap">
-              <Img
-                className="card__image"
-                fluid={data.datoCmsTekeningen.tekeningen[0].fluid}
-              />
-              <span className="werk_titel">
-                {data.datoCmsTekeningen.tekeningen[0].title}
-              </span>
-            </figure>
-          </div>
+          <Tekening nummer="0"></Tekening>
 
-          <div className="showcase__item">
-            <div className="intro tekeningen">
-              <h6
-                className="card__title"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    data.datoCmsHome.blokTekeningenNode.childMarkdownRemark
-                      .html,
-                }}
-              ></h6>
-              <Link to={`/tekeningen/`}>
-                <button className="card__button">
-                  {data.datoCmsHome.blokTekeningenKnop}
-                </button>
-              </Link>
-            </div>
-          </div>
+          <CtaBlock
+            ctaClass="tekeningen"
+            linkTo="/tekeningen/"
+            text={data.datoCmsHome.blokTekeningenNode.childMarkdownRemark.html}
+            buttonText={data.datoCmsHome.blokTekeningenKnop}
+          />
 
-          <div className="showcase__item">
-            <figure className="card werk-wrap">
-              <Img
-                className="card__image"
-                fluid={data.datoCmsTekeningen.tekeningen[1].fluid}
-              />
-              <span className="werk_titel">
-                {data.datoCmsTekeningen.tekeningen[1].title}
-              </span>
-            </figure>
-          </div>
+          <Tekening nummer="1"></Tekening>
 
-          <div className="showcase__item">
-            <div className="intro workshop">
-              <h6
-                className="card__title"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    data.datoCmsHome.blokWorkshopsNode.childMarkdownRemark.html,
-                }}
-              />
-              <Link to={`/workshops/`}>
-                <button className="card__button">
-                  {data.datoCmsHome.blokWorkshopsKnop}
-                </button>
-              </Link>
-            </div>
-          </div>
+          <CtaBlock
+            ctaClass="workshop"
+            linkTo="/workshops/"
+            text={data.datoCmsHome.blokWorkshopsNode.childMarkdownRemark.html}
+            buttonText={data.datoCmsHome.blokWorkshopsKnop}
+          />
 
-          <div className="showcase__item">
-            <figure className="card werk-wrap">
-              <Img
-                className="card__image"
-                fluid={data.datoCmsTekeningen.tekeningen[2].fluid}
-              />
-            </figure>
-            <span className="werk_titel">
-              {data.datoCmsTekeningen.tekeningen[2].title}
-            </span>
-          </div>
+          <Tekening nummer="2"></Tekening>
 
-          <div className="showcase__item">
-            <div
-              className="intro intro-text2"
-              dangerouslySetInnerHTML={{
-                __html:
-                  data.datoCmsHome.introtekstDeel2Node.childMarkdownRemark.html,
-              }}
-            ></div>
-          </div>
+          <CtaBlock
+            ctaClass="intro-text2"
+            text={data.datoCmsHome.introtekstDeel2Node.childMarkdownRemark.html}
+          />
 
-          <div className="showcase__item">
-            <figure className="card werk-wrap">
-              <Img
-                className="card__image"
-                fluid={data.datoCmsTekeningen.tekeningen[3].fluid}
-              />
-              <span className="werk_titel">
-                {data.datoCmsTekeningen.tekeningen[3].title}
-              </span>
-            </figure>
-          </div>
-          <div className="showcase__item">
-            <div className="newsletter">
-              <h3>{data.datoCmsHome.blockNieuwsbrief}</h3>
-              <form onSubmit={saveEmail}>
-                <input
-                  type="email"
-                  name="email"
-                  onChange={updateEmail}
-                  required
-                  placeholder="email"
-                />
-                <div>
-                  <input
-                    type="submit"
-                    className="button"
-                    value={data.datoCmsHome.blokNieuwsbriefKnop}
-                  />
-                </div>
-              </form>
-            </div>
-          </div>
-          <div className="showcase__item">
-            <figure className="card werk-wrap">
-              <Img
-                className="card__image"
-                fluid={data.datoCmsTekeningen.tekeningen[4].fluid}
-              />
-              <span className="werk_titel">
-                {data.datoCmsTekeningen.tekeningen[4].title}
-              </span>
-            </figure>
-          </div>
-          <div className="showcase__item">
-            <div className="intro workshop2">
-              <h6
-                className="card__title"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    data.datoCmsHome.blokWorkshops2Node.childMarkdownRemark
-                      .html,
-                }}
-              />
-              <Link to={`/contact/`}>
-                <button className="card__button">
-                  {data.datoCmsHome.blokWorkshops2Knop}
-                </button>
-              </Link>
-            </div>
-          </div>
-          <div className="showcase__item">
-            <figure className="card werk-wrap">
-              <Img
-                className="card__image"
-                fluid={data.datoCmsTekeningen.tekeningen[5].fluid}
-              />
-              <span className="werk_titel">
-                {data.datoCmsTekeningen.tekeningen[5].title}
-              </span>
-            </figure>
-          </div>
+          <Tekening nummer="3"></Tekening>
+          <NewsLetter />
+
+          <Tekening nummer="4"></Tekening>
+
+          <CtaBlock
+            ctaClass="workshop2"
+            linkTo="/contact/"
+            text={data.datoCmsHome.blokWorkshops2Node.childMarkdownRemark.html}
+            buttonText={data.datoCmsHome.blokWorkshops2Knop}
+          />
+
+          <Tekening nummer="5"></Tekening>
         </Masonry>
       </div>
 
@@ -261,24 +111,7 @@ export const query = graphql`
       blokTekeningenKnop
       blokWorkshopsKnop
       blokBloemenKnop
-      blockNieuwsbrief
-      blokNieuwsbriefKnop
       blokWorkshops2Knop
-      address {
-        latitude
-        longitude
-      }
-      addressText
-    }
-    datoCmsTekeningen {
-      tekeningen {
-        filename
-        url
-        title
-        fluid(maxWidth: 300, imgixParams: { fm: "jpg", auto: "compress" }) {
-          ...GatsbyDatoCmsSizes
-        }
-      }
     }
   }
 `;

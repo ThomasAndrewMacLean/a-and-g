@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Masonry from "react-masonry-component";
+import DokterText from "../components/DokterText";
 
 const BelieversPage = ({ data, location }) => {
   console.log(data);
@@ -9,6 +10,7 @@ const BelieversPage = ({ data, location }) => {
   return (
     <Layout location={location}>
       <div className="pusher believers">
+        <DokterText></DokterText>
         <Masonry className="showcase">
           <div className="showcase__item">
             <div
