@@ -14,6 +14,7 @@ const NewsLetter = ({ nummer }) => {
     e.preventDefault();
     if (processed) return;
     setProcessed(true);
+    return;
     fetch("https://europe-west1-a-and-g.cloudfunctions.net/addToMailingList", {
       method: "POST",
       headers: {
@@ -42,16 +43,21 @@ const NewsLetter = ({ nummer }) => {
           <div className="newsletter">
             <h3>{data.datoCmsHome.blockNieuwsbrief}</h3>
             <form onSubmit={saveEmail}>
-              <input
-                type="email"
-                name="email"
-                onChange={updateEmail}
-                required
-                placeholder="email"
-              />
+              {processed ? (
+                <p>Bedankt voor je inschrijving! 😘</p>
+              ) : (
+                <input
+                  type="email"
+                  name="email"
+                  onChange={updateEmail}
+                  required
+                  placeholder="email"
+                />
+              )}
               <div>
                 <input
                   type="submit"
+                  disabled={processed}
                   className="button"
                   value={data.datoCmsHome.blokNieuwsbriefKnop}
                 />
