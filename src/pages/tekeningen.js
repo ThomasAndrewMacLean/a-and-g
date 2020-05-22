@@ -6,13 +6,7 @@ import Layout from "../components/layout";
 
 const TekeningenPage = ({ data, location }) => {
   console.log(data);
-  function shuffle(a) {
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  }
+
   return (
     <Layout location={location}>
       <Masonry className="showcase">
@@ -24,7 +18,7 @@ const TekeningenPage = ({ data, location }) => {
             }}
           ></h1>
         </div>
-        {shuffle(data.datoCmsTekeningen.tekeningen).map((tekening) => (
+        {data.datoCmsTekeningen.tekeningen.map((tekening) => (
           <div key={tekening.filename} className="showcase__item">
             <figure className="card">
               <Img fluid={tekening.fluid} />
