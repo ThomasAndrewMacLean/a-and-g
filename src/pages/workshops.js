@@ -21,7 +21,7 @@ const WorkshopsPage = ({ data, location }) => {
                 </div> */}
         <div className="showcase__item">
           <h1 className="workshops-title">
-            We hebben een passie voor workshops
+            Omdat we ons daar <em>zo!</em> graag in uitleven.
           </h1>
         </div>
         {data.allDatoCmsWorkshop.edges
