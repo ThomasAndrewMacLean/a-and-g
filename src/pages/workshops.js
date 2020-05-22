@@ -8,8 +8,14 @@ const WorkshopsPage = ({ data, location }) => {
   console.log(data);
   return (
     <Layout location={location}>
-      <Masonry className="showcase">
-        {/* <div className="showcase__item">
+      <>
+        <div className="showcase__item">
+          <h1 className="workshops-title">
+            Omdat we ons daar <em>zo!</em> graag in uitleven.
+          </h1>
+        </div>
+        <Masonry id="workshops" className="showcase">
+          {/* <div className="showcase__item">
                     <div
                         className="intro"
                         dangerouslySetInnerHTML={{
@@ -19,80 +25,76 @@ const WorkshopsPage = ({ data, location }) => {
                         }}
                     ></div>
                 </div> */}
-        <div className="showcase__item">
-          <h1 className="workshops-title">
-            Omdat we ons daar <em>zo!</em> graag in uitleven.
-          </h1>
-        </div>
-        {data.allDatoCmsWorkshop.edges
-          .filter((work) => {
-            console.log(work.node.datum);
-            return new Date(work.node.datum) > new Date();
-          })
-          .map(({ node: work }) => (
-            <div key={work.id} className="showcase__item">
-              <figure className="card">
-                <Link
-                  to={`/workshops/${work.titel
-                    .split("?")
-                    .join("")
-                    .split(" ")
-                    .join("_")}`}
-                  className="card__image"
-                >
-                  <Img fluid={work.afbeelding.fluid} />
-                  <figcaption className="card__caption">
-                    <h6 className="card__title">{work.titel}</h6>
-                    {work.datum && (
-                      <date>
-                        {new Date(work.datum).toLocaleString("nl-BE", {
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </date>
-                    )}
-                    <div className="card__description">
-                      <p>{work.ondertitel}</p>
-                    </div>
-                  </figcaption>
-                </Link>
-              </figure>
-            </div>
-          ))}
+          {data.allDatoCmsWorkshop.edges
+            .filter((work) => {
+              console.log(work.node.datum);
+              return new Date(work.node.datum) > new Date();
+            })
+            .map(({ node: work }) => (
+              <div key={work.id} className="showcase__item">
+                <figure className="card">
+                  <Link
+                    to={`/workshops/${work.titel
+                      .split("?")
+                      .join("")
+                      .split(" ")
+                      .join("_")}`}
+                    className="card__image"
+                  >
+                    <Img fluid={work.afbeelding.fluid} />
+                    <figcaption className="card__caption">
+                      <h6 className="card__title">{work.titel}</h6>
+                      {work.datum && (
+                        <time>
+                          {new Date(work.datum).toLocaleString("nl-BE", {
+                            month: "long",
+                            year: "numeric",
+                          })}
+                        </time>
+                      )}
+                      <div className="card__description">
+                        <p>{work.ondertitel}</p>
+                      </div>
+                    </figcaption>
+                  </Link>
+                </figure>
+              </div>
+            ))}
 
-        {data.allDatoCmsWorkshop.edges
-          .filter((work) => new Date(work.node.datum) < new Date())
-          .map(({ node: work }) => (
-            <div key={work.id} className="showcase__item">
-              <figure className="workshop-voorbij card">
-                <Link
-                  to={`/workshops/${work.titel
-                    .split("?")
-                    .join("")
-                    .split(" ")
-                    .join("_")}`}
-                  className="card__image"
-                >
-                  <Img fluid={work.afbeelding.fluid} />
-                  <figcaption className="card__caption">
-                    <h6 className="card__title">{work.titel}</h6>
-                    {work.datum && (
-                      <date>
-                        {new Date(work.datum).toLocaleString("nl-BE", {
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </date>
-                    )}
-                    <div className="card__description">
-                      <p>{work.ondertitel}</p>
-                    </div>
-                  </figcaption>
-                </Link>
-              </figure>
-            </div>
-          ))}
-      </Masonry>
+          {data.allDatoCmsWorkshop.edges
+            .filter((work) => new Date(work.node.datum) < new Date())
+            .map(({ node: work }) => (
+              <div key={work.id} className="showcase__item">
+                <figure className="workshop-voorbij card">
+                  <Link
+                    to={`/workshops/${work.titel
+                      .split("?")
+                      .join("")
+                      .split(" ")
+                      .join("_")}`}
+                    className="card__image"
+                  >
+                    <Img fluid={work.afbeelding.fluid} />
+                    <figcaption className="card__caption">
+                      <h6 className="card__title">{work.titel}</h6>
+                      {work.datum && (
+                        <time>
+                          {new Date(work.datum).toLocaleString("nl-BE", {
+                            month: "long",
+                            year: "numeric",
+                          })}
+                        </time>
+                      )}
+                      <div className="card__description">
+                        <p>{work.ondertitel}</p>
+                      </div>
+                    </figcaption>
+                  </Link>
+                </figure>
+              </div>
+            ))}
+        </Masonry>
+      </>
     </Layout>
   );
 };
