@@ -75,7 +75,7 @@ export default IndexPage;
 export const query = graphql`
   query IndexQuery {
     datoCmsArtIsYourLegacy {
-      textNode {
+      textaNode {
         childMarkdownRemark {
           html
         }
