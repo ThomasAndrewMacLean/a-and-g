@@ -91,7 +91,9 @@ const TemplateWrapper = ({ children, location }) => {
                 >
                   <Link to="/contact">contact</Link>
                 </li>
-
+                <li>
+                  <Link to="/artLegacy">.</Link>
+                </li>
                 <li
                   className={
                     location.pathname.includes("/believers") ? "active" : ""
