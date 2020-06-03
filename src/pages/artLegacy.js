@@ -2,9 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Masonry from "react-masonry-component";
 import Layout from "../components/layout";
-import DokterText from "../components/DokterText";
-import Tekening from "../components/Tekening";
-import CtaBlock from "../components/CtaBlock";
+import DokterText from "../components/DokterText"; 
 import Img from "gatsby-image";
 
 const LegacyPage = ({ data, location }) => {
@@ -13,10 +11,18 @@ const LegacyPage = ({ data, location }) => {
     <Layout location={location}>
       <div className="pusher">
         <Masonry className="showcase">
-          <CtaBlock
-            ctaClass="legacy-text"
-            text={data.datoCmsArtIsYourLegacy.textNode.childMarkdownRemark.html}
-          />
+          <div className="showcase__item">
+            <div className={"legacy-text" + " intro"}>
+              <h6
+                className="card__title"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    data.datoCmsArtIsYourLegacy.textNode.childMarkdownRemark
+                      .html,
+                }}
+              />
+            </div>
+          </div>
           {data.datoCmsArtIsYourLegacy.images.map((tekening, index) => {
             return (
               <div key={index} className="showcase__item">
