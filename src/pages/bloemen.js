@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import "../styles/blocks/bloemen.sass";
 import axios from "axios";
@@ -80,6 +80,9 @@ const BloemenPage = ({ data }) => {
   };
   return (
     <main className="bloemenPage">
+      <Link className="backToHome" to="/">
+        Terug naar A & G
+      </Link>
       <button className="info-knop">i</button>
       <div className="info-modal">
         <ul>
