@@ -16,9 +16,9 @@ const LegacyPage = ({ data, location }) => {
             ctaClass="legacy-text"
             text={data.datoCmsArtIsYourLegacy.textNode.childMarkdownRemark.html}
           />
-          {data.datoCmsArtIsYourLegacy.images.map((tekening) => {
+          {data.datoCmsArtIsYourLegacy.images.map((tekening, index) => {
             return (
-              <div className="showcase__item">
+              <div key={index} className="showcase__item">
                 <figure className="card werk-wrap">
                   <Img className="card__image" fluid={tekening.fluid} />
                   {/* <span className="werk_titel">
