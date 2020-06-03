@@ -12,14 +12,17 @@ const LegacyPage = ({ data, location }) => {
         <Masonry className="showcase">
           <div className="showcase__item">
             <div className={"legacy-text" + " intro"}>
-              <h6
-                className="card__title"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    data.datoCmsArtIsYourLegacy.textaNode.childMarkdownRemark
-                      .html,
-                }}
-              />
+              {data.datoCmsArtIsYourLegacy.textaNode.childMarkdownRemark
+                .html && (
+                <h6
+                  className="card__title"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      data.datoCmsArtIsYourLegacy.textaNode.childMarkdownRemark
+                        .html,
+                  }}
+                />
+              )}
             </div>
           </div>
           {data.datoCmsArtIsYourLegacy.images.map((tekening, index) => {
