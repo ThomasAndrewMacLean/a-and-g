@@ -14,7 +14,7 @@ const LegacyPage = ({ data, location }) => {
             <div className={"legacy-text" + " intro"}>
               {data.datoCmsArtIsYourLegacy.textaNode.childMarkdownRemark
                 .html && (
-                <h6
+                <div
                   className="card__title"
                   dangerouslySetInnerHTML={{
                     __html:
