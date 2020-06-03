@@ -8,6 +8,7 @@ import CtaBlock from "../components/CtaBlock";
 import Img from "gatsby-image";
 
 const LegacyPage = ({ data, location }) => {
+  console.log(data.datoCmsArtIsYourLegacy.textNode.childMarkdownRemark.html);
   return (
     <Layout location={location}>
       <div className="pusher">
