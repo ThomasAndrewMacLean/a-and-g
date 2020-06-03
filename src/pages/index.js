@@ -74,6 +74,18 @@ export default IndexPage;
 
 export const query = graphql`
   query IndexQuery {
+    datoCmsArtIsYourLegacy {
+      textNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      images {
+        fluid(maxWidth: 300, imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsSizes
+        }
+      }
+    }
     datoCmsHome {
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
