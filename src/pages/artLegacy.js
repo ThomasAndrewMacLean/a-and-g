@@ -2,11 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 import Masonry from "react-masonry-component";
 import Layout from "../components/layout";
-import DokterText from "../components/DokterText"; 
+import DokterText from "../components/DokterText";
 import Img from "gatsby-image";
 
 const LegacyPage = ({ data, location }) => {
-  console.log(data.datoCmsArtIsYourLegacy.textNode.childMarkdownRemark.html);
   return (
     <Layout location={location}>
       <div className="pusher">
@@ -17,7 +16,7 @@ const LegacyPage = ({ data, location }) => {
                 className="card__title"
                 dangerouslySetInnerHTML={{
                   __html:
-                    data.datoCmsArtIsYourLegacy.textNode.childMarkdownRemark
+                    data.datoCmsArtIsYourLegacy.textaNode.childMarkdownRemark
                       .html,
                 }}
               />
@@ -48,7 +47,7 @@ export default LegacyPage;
 export const query = graphql`
   query LegacyQuery {
     datoCmsArtIsYourLegacy {
-      textNode {
+      textaNode {
         childMarkdownRemark {
           html
         }
