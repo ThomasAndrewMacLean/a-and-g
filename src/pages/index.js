@@ -127,12 +127,6 @@ export const query = graphql`
           html
         }
       }
-      blokLegacyNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-      blokLegacyKnop
 
       blokTekeningenKnop
       blokWorkshopsKnop
