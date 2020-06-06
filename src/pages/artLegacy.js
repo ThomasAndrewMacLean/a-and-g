@@ -18,24 +18,32 @@ const LegacyPage = ({ data, location }) => {
               data.datoCmsArtIsYourLegacy.textaNode.childMarkdownRemark.html
             }
           ></TextBlock>
-
           <TextBlock
             text={
               data.datoCmsArtIsYourLegacy.textbNode.childMarkdownRemark.html
             }
           ></TextBlock>
-
           <TextBlock
             text={
               data.datoCmsArtIsYourLegacy.textcNode.childMarkdownRemark.html
             }
           ></TextBlock>
-
           <TextBlock
             text={
               data.datoCmsArtIsYourLegacy.textdNode.childMarkdownRemark.html
             }
+          ></TextBlock>{" "}
+          {/* KUNSTENAAR */}
+          <TextBlock
+            color={data.datoCmsArtIsYourLegacy.kleurKunstenaar}
+            text={
+              data.datoCmsArtIsYourLegacy.textKunstenaarNode.childMarkdownRemark
+                .html
+            }
           ></TextBlock>
+          <TekeningByFluid
+            tekening={data.datoCmsArtIsYourLegacy.images[3]}
+          ></TekeningByFluid>
           {/* AMBASSADEUR */}
           {/* <TextBlock
             color={data.datoCmsArtIsYourLegacy.kleurAmbassadeur}
@@ -57,7 +65,6 @@ const LegacyPage = ({ data, location }) => {
           <TekeningByFluid
             tekening={data.datoCmsArtIsYourLegacy.images[1]}
           ></TekeningByFluid>
-
           <NewsLetter></NewsLetter>
           {/* METER */}
           <TextBlock
@@ -68,17 +75,6 @@ const LegacyPage = ({ data, location }) => {
           ></TextBlock>
           <TekeningByFluid
             tekening={data.datoCmsArtIsYourLegacy.images[2]}
-          ></TekeningByFluid>
-          {/* KUNSTENAAR */}
-          <TextBlock
-            color={data.datoCmsArtIsYourLegacy.kleurKunstenaar}
-            text={
-              data.datoCmsArtIsYourLegacy.textKunstenaarNode.childMarkdownRemark
-                .html
-            }
-          ></TextBlock>
-          <TekeningByFluid
-            tekening={data.datoCmsArtIsYourLegacy.images[3]}
           ></TekeningByFluid>
         </Masonry>
       </div>

@@ -25,8 +25,8 @@ const IndexPage = ({ data, location }) => {
           />
 
           <Tekening nummer="0"></Tekening>
-          {/* 
-          <CtaBlock
+
+          {/* <CtaBlock
             ctaClass="artLegacy"
             linkTo="/artLegacy/"
             text={data.datoCmsHome.blokLegacyNode.childMarkdownRemark.html}
@@ -128,6 +128,12 @@ export const query = graphql`
         }
       }
 
+      blokLegacyNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      blokLegacyKnop
       blokTekeningenKnop
       blokWorkshopsKnop
       blokBloemenKnop
