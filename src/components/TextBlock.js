@@ -1,7 +1,7 @@
 import React from "react";
 
 const TextBlock = ({ text, color }) => {
-  return (
+  return text ? (
     <div className="showcase__item">
       <div
         style={{
@@ -19,7 +19,7 @@ const TextBlock = ({ text, color }) => {
         )}
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default TextBlock;

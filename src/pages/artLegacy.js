@@ -45,13 +45,13 @@ const LegacyPage = ({ data, location }) => {
             tekening={data.datoCmsArtIsYourLegacy.images[3]}
           ></TekeningByFluid>
           {/* AMBASSADEUR */}
-          {/* <TextBlock
+          <TextBlock
             color={data.datoCmsArtIsYourLegacy.kleurAmbassadeur}
             text={
               data.datoCmsArtIsYourLegacy.textAmbassadeurNode
                 .childMarkdownRemark.html
             }
-          ></TextBlock> */}
+          ></TextBlock>
           <TekeningByFluid
             tekening={data.datoCmsArtIsYourLegacy.images[0]}
           ></TekeningByFluid>
