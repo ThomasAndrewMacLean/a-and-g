@@ -7,8 +7,16 @@ import Img from "gatsby-image";
 import TekeningByFluid from "../components/TekeningByFluid";
 import TextBlock from "../components/TextBlock";
 import NewsLetter from "../components/NewsLetter";
+import Workshop from "../components/Workshop";
 
 const LegacyPage = ({ data, location }) => {
+  console.log(
+    data.allDatoCmsWorkshop.edges.map((x) => x.node).find((x) => x.artlegacy)
+  );
+  const workshop = data.allDatoCmsWorkshop.edges
+    .map((x) => x.node)
+    .find((x) => x.artlegacy);
+
   return (
     <Layout location={location}>
       <div className="pusher">
@@ -28,11 +36,12 @@ const LegacyPage = ({ data, location }) => {
               data.datoCmsArtIsYourLegacy.textcNode.childMarkdownRemark.html
             }
           ></TextBlock>
+          {workshop && <Workshop work={workshop}></Workshop>}
           <TextBlock
             text={
               data.datoCmsArtIsYourLegacy.textdNode.childMarkdownRemark.html
             }
-          ></TextBlock>{" "}
+          ></TextBlock>
           {/* KUNSTENAAR */}
           <TextBlock
             color={data.datoCmsArtIsYourLegacy.kleurKunstenaar}
@@ -42,19 +51,9 @@ const LegacyPage = ({ data, location }) => {
             }
           ></TextBlock>
           <TekeningByFluid
-            tekening={data.datoCmsArtIsYourLegacy.images[3]}
+            tekening={data.datoCmsArtIsYourLegacy.images[5]}
           ></TekeningByFluid>
-          {/* AMBASSADEUR */}
-          <TextBlock
-            color={data.datoCmsArtIsYourLegacy.kleurAmbassadeur}
-            text={
-              data.datoCmsArtIsYourLegacy.textAmbassadeurNode
-                .childMarkdownRemark.html
-            }
-          ></TextBlock>
-          <TekeningByFluid
-            tekening={data.datoCmsArtIsYourLegacy.images[0]}
-          ></TekeningByFluid>
+
           {/* PETER */}
           <TextBlock
             color={data.datoCmsArtIsYourLegacy.kleurPeter}
@@ -63,7 +62,7 @@ const LegacyPage = ({ data, location }) => {
             }
           ></TextBlock>
           <TekeningByFluid
-            tekening={data.datoCmsArtIsYourLegacy.images[1]}
+            tekening={data.datoCmsArtIsYourLegacy.images[6]}
           ></TekeningByFluid>
           <NewsLetter></NewsLetter>
           {/* METER */}
@@ -74,12 +73,23 @@ const LegacyPage = ({ data, location }) => {
             }
           ></TextBlock>
           <TekeningByFluid
-            tekening={data.datoCmsArtIsYourLegacy.images[2]}
+            tekening={data.datoCmsArtIsYourLegacy.images[3]}
+          ></TekeningByFluid>
+          {/* AMBASSADEUR = cargo mas*/}
+          <TextBlock
+            color={data.datoCmsArtIsYourLegacy.kleurAmbassadeur}
+            text={
+              data.datoCmsArtIsYourLegacy.textAmbassadeurNode
+                .childMarkdownRemark.html
+            }
+          ></TextBlock>
+          <TekeningByFluid
+            tekening={data.datoCmsArtIsYourLegacy.images[4]}
           ></TekeningByFluid>
         </Masonry>
       </div>
-
-      <DokterText></DokterText>
+      {/* 
+      <DokterText></DokterText> */}
     </Layout>
   );
 };
@@ -88,6 +98,23 @@ export default LegacyPage;
 
 export const query = graphql`
   query LegacyQuery {
+    allDatoCmsWorkshop(sort: { fields: datum, order: ASC }) {
+      edges {
+        node {
+          id
+          ondertitel
+          artlegacy
+          titel
+          datum
+          afbeelding {
+            url
+            fluid(maxWidth: 300, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsSizes
+            }
+          }
+        }
+      }
+    }
     datoCmsArtIsYourLegacy {
       kleurAmbassadeur
       kleurKunstenaar

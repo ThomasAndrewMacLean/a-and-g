@@ -18,20 +18,20 @@ const IndexPage = ({ data, location }) => {
           />
 
           <CtaBlock
+            ctaClass="artLegacy"
+            linkTo="/artLegacy/"
+            text={data.datoCmsHome.blokLegacyNode.childMarkdownRemark.html}
+            buttonText={data.datoCmsHome.blokLegacyKnop}
+          />
+
+          <Tekening nummer="0"></Tekening>
+
+          <CtaBlock
             ctaClass="bloemen"
             linkTo="/bloemen/"
             text={data.datoCmsHome.blokBloemenNode.childMarkdownRemark.html}
             buttonText={data.datoCmsHome.blokBloemenKnop}
           />
-
-          <Tekening nummer="0"></Tekening>
-
-          {/* <CtaBlock
-            ctaClass="artLegacy"
-            linkTo="/artLegacy/"
-            text={data.datoCmsHome.blokLegacyNode.childMarkdownRemark.html}
-            buttonText={data.datoCmsHome.blokLegacyKnop}
-          /> */}
 
           <CtaBlock
             ctaClass="tekeningen"
