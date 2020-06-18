@@ -49,10 +49,11 @@ const LegacyPage = ({ data, location }) => {
               data.datoCmsArtIsYourLegacy.textKunstenaarNode.childMarkdownRemark
                 .html
             }
-          ></TextBlock>
-          <TekeningByFluid
             tekening={data.datoCmsArtIsYourLegacy.images[5]}
-          ></TekeningByFluid>
+          ></TextBlock>
+          {/* <TekeningByFluid
+            tekening={data.datoCmsArtIsYourLegacy.images[5]}
+          ></TekeningByFluid> */}
 
           {/* PETER */}
           <TextBlock
@@ -60,10 +61,11 @@ const LegacyPage = ({ data, location }) => {
             text={
               data.datoCmsArtIsYourLegacy.textPeterNode.childMarkdownRemark.html
             }
-          ></TextBlock>
-          <TekeningByFluid
             tekening={data.datoCmsArtIsYourLegacy.images[6]}
-          ></TekeningByFluid>
+          ></TextBlock>
+          {/* <TekeningByFluid
+            tekening={data.datoCmsArtIsYourLegacy.images[6]}
+          ></TekeningByFluid> */}
           <NewsLetter></NewsLetter>
           {/* METER */}
           <TextBlock
@@ -71,10 +73,11 @@ const LegacyPage = ({ data, location }) => {
             text={
               data.datoCmsArtIsYourLegacy.textMeterNode.childMarkdownRemark.html
             }
-          ></TextBlock>
-          <TekeningByFluid
             tekening={data.datoCmsArtIsYourLegacy.images[3]}
-          ></TekeningByFluid>
+          ></TextBlock>
+          {/* <TekeningByFluid
+            tekening={data.datoCmsArtIsYourLegacy.images[3]}
+          ></TekeningByFluid> */}
           {/* AMBASSADEUR = cargo mas*/}
           <TextBlock
             color={data.datoCmsArtIsYourLegacy.kleurAmbassadeur}
@@ -82,10 +85,11 @@ const LegacyPage = ({ data, location }) => {
               data.datoCmsArtIsYourLegacy.textAmbassadeurNode
                 .childMarkdownRemark.html
             }
-          ></TextBlock>
-          <TekeningByFluid
             tekening={data.datoCmsArtIsYourLegacy.images[4]}
-          ></TekeningByFluid>
+          ></TextBlock>
+          {/* <TekeningByFluid
+            tekening={data.datoCmsArtIsYourLegacy.images[4]}
+          ></TekeningByFluid> */}
         </Masonry>
       </div>
       {/* 
