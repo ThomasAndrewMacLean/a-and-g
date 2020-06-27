@@ -14,7 +14,7 @@ const NewsLetter = ({ nummer }) => {
     e.preventDefault();
     if (processed) return;
     setProcessed(true);
-    return;
+  
     fetch("https://europe-west1-a-and-g.cloudfunctions.net/addToMailingList", {
       method: "POST",
       headers: {
