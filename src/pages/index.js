@@ -31,22 +31,25 @@ const IndexPage = ({ data, location }) => {
             text={data.datoCmsHome.blokBloemenNode.childMarkdownRemark.html}
             buttonText={data.datoCmsHome.blokBloemenKnop}
           />
+          <Tekening nummer="1"></Tekening>
           {data.allDatoCmsHomeblokken.edges.map((e, i) => {
             return (
-              <CtaBlock
-                ctaClass={i % 2 == 0 ? "bloemen" : ""}
-                text={e.node.textNode.childMarkdownRemark.html}
-              />
+              <>
+                <CtaBlock
+                  ctaClass={i % 2 == 0 ? "bloemen" : ""}
+                  text={e.node.textNode.childMarkdownRemark.html}
+                />
+                {/* <Tekening nummer="1"></Tekening> */}
+              </>
             );
           })}
-          <Tekening nummer="1"></Tekening>
+          <Tekening nummer="3"></Tekening>
           <CtaBlock
             ctaClass="tekeningen"
             linkTo="/tekeningen/"
             text={data.datoCmsHome.blokTekeningenNode.childMarkdownRemark.html}
             buttonText={data.datoCmsHome.blokTekeningenKnop}
           />
-
           <CtaBlock
             ctaClass="workshop"
             linkTo="/workshops/"
@@ -54,17 +57,15 @@ const IndexPage = ({ data, location }) => {
             buttonText={data.datoCmsHome.blokWorkshopsKnop}
           />
 
-          <Tekening nummer="2"></Tekening>
-
+          <Tekening nummer="4"></Tekening>
           <CtaBlock
             ctaClass="intro-text2"
             text={data.datoCmsHome.introtekstDeel2Node.childMarkdownRemark.html}
           />
 
-          <Tekening nummer="3"></Tekening>
           <NewsLetter />
 
-          <Tekening nummer="4"></Tekening>
+          {/* <Tekening nummer="4"></Tekening> */}
 
           <CtaBlock
             ctaClass="workshop2"

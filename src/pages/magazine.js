@@ -9,13 +9,13 @@ import TextBlock from "../components/TextBlock";
 import NewsLetter from "../components/NewsLetter";
 import Workshop from "../components/Workshop";
 
-const MagazinePage = ({ data, location }) => {
-  console.log(
-    data.allDatoCmsWorkshop.edges.map((x) => x.node).find((x) => x.artlegacy)
-  );
-  const workshop = data.allDatoCmsWorkshop.edges
-    .map((x) => x.node)
-    .find((x) => x.artlegacy);
+const MagazinePage = ({ location }) => {
+  // console.log(
+  //   data.allDatoCmsWorkshop.edges.map((x) => x.node).find((x) => x.artlegacy)
+  // );
+  // const workshop = data.allDatoCmsWorkshop.edges
+  //   .map((x) => x.node)
+  //   .find((x) => x.artlegacy);
 
   return (
     <Layout location={location}>
@@ -26,14 +26,14 @@ const MagazinePage = ({ data, location }) => {
 
 export default MagazinePage;
 
-export const query = graphql`
-  query MagazineQuery {
-    datoCmsMagazine {
-      text {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query MagazineQuery {
+//     datoCmsMagazine {
+//       text {
+//         childMarkdownRemark {
+//           html
+//         }
+//       }
+//     }
+//   }
+// `;

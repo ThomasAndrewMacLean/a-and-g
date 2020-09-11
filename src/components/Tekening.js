@@ -23,7 +23,7 @@ const Tekening = ({ nummer }) => {
         }
       `}
       render={(data) =>
-        nummer <= data.datoCmsHome.tekingenhome.length && (
+        nummer < data.datoCmsHome.tekingenhome.length && (
           <div className="showcase__item">
             <figure className="card werk-wrap">
               <Img
@@ -31,6 +31,7 @@ const Tekening = ({ nummer }) => {
                 fluid={data.datoCmsHome.tekingenhome[nummer].fluid}
               />
               <span className="werk_titel">
+                {nummer}
                 {data.datoCmsHome.tekingenhome[nummer].title}
               </span>
             </figure>
