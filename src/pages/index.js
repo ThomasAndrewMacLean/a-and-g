@@ -17,14 +17,13 @@ const IndexPage = ({ data, location }) => {
             text={data.datoCmsHome.introTextNode.childMarkdownRemark.html}
           />
 
+          <Tekening nummer="0"></Tekening>
           <CtaBlock
             ctaClass="artLegacy"
             linkTo="/artLegacy/"
             text={data.datoCmsHome.blokLegacyNode.childMarkdownRemark.html}
             buttonText={data.datoCmsHome.blokLegacyKnop}
           />
-
-          <Tekening nummer="0"></Tekening>
 
           <CtaBlock
             ctaClass="bloemen"
@@ -40,14 +39,13 @@ const IndexPage = ({ data, location }) => {
               />
             );
           })}
+          <Tekening nummer="1"></Tekening>
           <CtaBlock
             ctaClass="tekeningen"
             linkTo="/tekeningen/"
             text={data.datoCmsHome.blokTekeningenNode.childMarkdownRemark.html}
             buttonText={data.datoCmsHome.blokTekeningenKnop}
           />
-
-          <Tekening nummer="1"></Tekening>
 
           <CtaBlock
             ctaClass="workshop"
