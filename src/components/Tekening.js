@@ -31,7 +31,6 @@ const Tekening = ({ nummer }) => {
                 fluid={data.datoCmsHome.tekingenhome[nummer].fluid}
               />
               <span className="werk_titel">
-                {nummer}
                 {data.datoCmsHome.tekingenhome[nummer].title}
               </span>
             </figure>
