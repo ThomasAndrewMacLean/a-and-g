@@ -7,8 +7,8 @@ const Tekening = ({ nummer }) => {
     <StaticQuery
       query={graphql`
         query TekeningQuery {
-          datoCmsTekeningen {
-            tekeningen {
+          datoCmsHome {
+            tekingenhome {
               filename
               url
               title
@@ -22,19 +22,21 @@ const Tekening = ({ nummer }) => {
           }
         }
       `}
-      render={(data) => (
-        <div className="showcase__item">
-          <figure className="card werk-wrap">
-            <Img
-              className="card__image"
-              fluid={data.datoCmsTekeningen.tekeningen[nummer].fluid}
-            />
-            <span className="werk_titel">
-              {data.datoCmsTekeningen.tekeningen[nummer].title}
-            </span>
-          </figure>
-        </div>
-      )}
+      render={(data) =>
+        nummer <= data.datoCmsHome.tekingenhome.length && (
+          <div className="showcase__item">
+            <figure className="card werk-wrap">
+              <Img
+                className="card__image"
+                fluid={data.datoCmsHome.tekingenhome[nummer].fluid}
+              />
+              <span className="werk_titel">
+                {data.datoCmsHome.tekingenhome[nummer].title}
+              </span>
+            </figure>
+          </div>
+        )
+      }
     />
   );
 };

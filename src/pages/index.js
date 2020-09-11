@@ -32,7 +32,14 @@ const IndexPage = ({ data, location }) => {
             text={data.datoCmsHome.blokBloemenNode.childMarkdownRemark.html}
             buttonText={data.datoCmsHome.blokBloemenKnop}
           />
-
+          {data.allDatoCmsHomeblokken.edges.map((e, i) => {
+            return (
+              <CtaBlock
+                ctaClass={i % 2 == 0 ? "bloemen" : ""}
+                text={e.node.textNode.childMarkdownRemark.html}
+              />
+            );
+          })}
           <CtaBlock
             ctaClass="tekeningen"
             linkTo="/tekeningen/"
@@ -81,6 +88,17 @@ export default IndexPage;
 
 export const query = graphql`
   query IndexQuery {
+    allDatoCmsHomeblokken {
+      edges {
+        node {
+          textNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
     datoCmsArtIsYourLegacy {
       textaNode {
         childMarkdownRemark {

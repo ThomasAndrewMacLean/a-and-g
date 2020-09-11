@@ -87,9 +87,16 @@ const LegacyPage = ({ data, location }) => {
             }
             tekening={data.datoCmsArtIsYourLegacy.images[4]}
           ></TextBlock>
-          {/* <TekeningByFluid
-            tekening={data.datoCmsArtIsYourLegacy.images[4]}
-          ></TekeningByFluid> */}
+
+          {/* CURRATRO = cargo mas*/}
+          <TextBlock
+            color={data.datoCmsArtIsYourLegacy.kleurCurator}
+            text={
+              data.datoCmsArtIsYourLegacy.textCuratorNode.childMarkdownRemark
+                .html
+            }
+            tekening={data.datoCmsArtIsYourLegacy.images[7]}
+          ></TextBlock>
         </Masonry>
       </div>
       {/* 
@@ -124,6 +131,12 @@ export const query = graphql`
       kleurKunstenaar
       kleurMeter
       kleurPeter
+      kleurCurator
+      textCuratorNode {
+        childMarkdownRemark {
+          html
+        }
+      }
       textAmbassadeurNode {
         childMarkdownRemark {
           html
