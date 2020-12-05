@@ -97,10 +97,10 @@ const TemplateWrapper = ({ children, location }) => {
                   }
                 >
                   <Link to="/believers">believers</Link>
-                  <li>
-                    <Link to="/artLegacy">.</Link>
-                  </li>
                 </li>
+                {/* <li>
+                  <Link to="/artLegacy">.</Link>
+                </li> */}
               </ul>
             </nav>
             <button
